@@ -9,7 +9,10 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Form handling
+# Form handling configuration
+[build.processing]
+  skip_processing = false
+
 [[headers]]
   for = "/*"
   [headers.values]

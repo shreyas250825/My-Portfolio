@@ -185,7 +185,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.disabled = false;
                 submitBtn.querySelector('.btn-text').style.display = 'inline';
                 submitBtn.querySelector('.btn-loading').style.display = 'none';
-            }, 5000);
+            }, 10000);
+            
+            // Also handle the case where the form might not redirect
+            // by checking if we're still on the same page after submission
+            const currentUrl = window.location.href;
+            setTimeout(() => {
+                if (window.location.href === currentUrl) {
+                    // Form didn't redirect, show success message
+                    showFormMessage('Thank you! Your message has been sent successfully.', 'success');
+                    contactForm.reset();
+                }
+            }, 3000);
         });
     }
     

@@ -1,5 +1,2 @@
-# Netlify form handling
-/success.html  /success.html  200
-
-# Handle form submissions
+# Handle form submissions and routing
 /*  /index.html  200
