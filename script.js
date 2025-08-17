@@ -153,9 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            // Don't prevent default - let Netlify handle the submission
-            // But we can show loading state and validation
-            
             // Get form data for validation
             const formData = new FormData(this);
             const name = formData.get('name');
@@ -181,18 +178,14 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.querySelector('.btn-text').style.display = 'none';
             submitBtn.querySelector('.btn-loading').style.display = 'inline-block';
             
-            // Show success message after form submission
+            // Let Netlify handle the form submission naturally
+            // The form will redirect to a success page
+            // Reset button state after a delay in case of any issues
             setTimeout(() => {
-                showFormMessage('Thank you! Your message has been sent successfully.', 'success');
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Reset button state
                 submitBtn.disabled = false;
                 submitBtn.querySelector('.btn-text').style.display = 'inline';
                 submitBtn.querySelector('.btn-loading').style.display = 'none';
-            }, 1000);
+            }, 5000);
         });
     }
     

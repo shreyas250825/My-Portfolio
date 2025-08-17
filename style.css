@@ -1017,6 +1017,15 @@ p {
     margin-bottom: 1.5rem;
 }
 
+.form-group.honeypot {
+    display: none !important;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 .form-group input,
 .form-group textarea {
     width: 100%;
