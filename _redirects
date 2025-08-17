@@ -1,5 +1,2 @@
-# Handle form submissions and routing
+# Handle SPA routing - redirect all routes to index.html
 /*  /index.html  200
-
-# Ensure forms work properly
-/form-success  /index.html  200

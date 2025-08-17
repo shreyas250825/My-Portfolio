@@ -650,7 +650,7 @@
                 
                 <div class="contact-form">
                     <h3>Send Me a Message</h3>
-                    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" netlify>
                         <input type="hidden" name="form-name" value="contact" />
                         <div class="form-group honeypot" style="display: none;">
                             <input type="text" name="bot-field" />
@@ -686,8 +686,9 @@
                         <!-- Form submission note -->
                         <div class="form-note">
                             <i class="fas fa-info-circle"></i>
-                            Your Message Sent Successfully Your message will be sent directly to my email
+                            Your message will be sent directly to my email. I'll respond within 24 hours.
                         </div>
+
                     </form>
                      
 
@@ -778,6 +779,14 @@
         }
     }
     </script>
+    
+    <!-- Hidden Netlify Form for Detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="subject" />
+        <textarea name="message"></textarea>
+    </form>
     
     <script src="script.js"></script>
 </body>
