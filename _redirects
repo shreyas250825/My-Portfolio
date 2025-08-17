@@ -1,2 +1,5 @@
 # Handle form submissions and routing
 /*  /index.html  200
+
+# Ensure forms work properly
+/form-success  /index.html  200
