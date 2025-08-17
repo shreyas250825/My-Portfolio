@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Intersection Observer for section animations
     const sections = document.querySelectorAll('.section');
     
-    const observer = new IntersectionObserver((entries) => {
+    const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -143,19 +143,108 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     sections.forEach(section => {
-        observer.observe(section);
+        sectionObserver.observe(section);
     });
 
-    // Form submission
+    // Contact form handling for Netlify
     const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMessage = document.getElementById('formMessage');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Don't prevent default - let Netlify handle the submission
+            // But we can show loading state and validation
             
-            // Here you would typically send the form data to a server
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
+            // Get form data for validation
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Basic validation
+            if (!name || !email || !subject || !message) {
+                e.preventDefault();
+                showFormMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                e.preventDefault();
+                showFormMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.querySelector('.btn-text').style.display = 'none';
+            submitBtn.querySelector('.btn-loading').style.display = 'inline-block';
+            
+            // Show success message after form submission
+            setTimeout(() => {
+                showFormMessage('Thank you! Your message has been sent successfully.', 'success');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.querySelector('.btn-text').style.display = 'inline';
+                submitBtn.querySelector('.btn-loading').style.display = 'none';
+            }, 1000);
         });
     }
+    
+    // Email validation function
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+    // Show form message function
+    function showFormMessage(message, type) {
+        formMessage.textContent = message;
+        formMessage.className = `form-message ${type} show`;
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            formMessage.classList.remove('show');
+        }, 5000);
+    }
+
+    // Animate elements on scroll
+    const animationObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    // Observe elements for animation
+    document.querySelectorAll('.skill-item, .project-card, .timeline-item, .education-card, .certificate-card').forEach(el => {
+        animationObserver.observe(el);
+    });
+
+    // Skills animation on scroll
+    const skillBars = document.querySelectorAll('.skill-level');
+    
+    const skillObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBar = entry.target;
+                const width = skillBar.style.width;
+                skillBar.style.width = '0%';
+                
+                setTimeout(() => {
+                    skillBar.style.width = width;
+                }, 100);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    skillBars.forEach(bar => {
+        skillObserver.observe(bar);
+    });
 });
