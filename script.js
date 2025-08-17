@@ -5,6 +5,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     mobileMenuBtn.addEventListener('click', function() {
         navLinks.classList.toggle('active');
+        // Add toggle icon
+        const icon = this.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.className = 'fas fa-times';
+        } else {
+            icon.className = 'fas fa-bars';
+        }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = 'fas fa-bars';
+        }
     });
 
     // Smooth scrolling for navigation links
