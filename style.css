@@ -1513,30 +1513,210 @@ footer {
     }
 }
 
-/* Additional Mobile Improvements */
-@media (max-width: 768px) {
-    .nav-links a {
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-    }
+/* NEW: Premium dark theme + glassmorphism */
+:root {
+    --bg-start: #0b1220;
+    --bg-end: #0e1629;
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --neon: #22d3ee; /* teal */
+    --neon2: #60a5fa; /* neon blue */
+    --gold: #fbbf24; /* accent gold */
+}
 
-    .nav-links a:active {
-        background: var(--primary-color);
-        color: white;
-        transform: scale(0.98);
-    }
+body {
+    background: radial-gradient(1200px 800px at 20% 10%, #111827, transparent 60%),
+                 linear-gradient(160deg, var(--bg-start), var(--bg-end));
+    color: #e5e7eb;
+}
 
-    /* Prevent body scroll when menu is open */
-    body.menu-open {
-        overflow: hidden;
-    }
+/* Ensure readable text on dark nav */
+.sticky-nav .name { color: #e5e7eb; }
+.sticky-nav .nav-links a { color: #e5e7eb; border-color: transparent; }
 
-    /* Better mobile menu positioning */
+/* Headings and paragraph contrast */
+h2, h3, h4 { color: #e5e7eb; }
+p { color: #cbd5e1; }
+
+/* Make skill labels readable on dark */
+.skill-name { color: #e5e7eb; }
+
+.site-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+}
+
+#particle-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -2;
+}
+
+.bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(800px 800px at 10% 10%, rgba(34, 211, 238, 0.15), transparent 60%),
+                 radial-gradient(700px 700px at 90% 20%, rgba(96, 165, 250, 0.12), transparent 60%),
+                 radial-gradient(600px 600px at 30% 80%, rgba(251, 191, 36, 0.08), transparent 60%);
+    filter: blur(30px) saturate(120%);
+    animation: gradientFloat 18s ease-in-out infinite alternate;
+    z-index: -3;
+}
+
+@keyframes gradientFloat {
+    0% { transform: translate3d(0,0,0) scale(1); }
+    100% { transform: translate3d(0,-20px,0) scale(1.05); }
+}
+
+/* Glassy surfaces */
+.profile-card,
+.skill-category,
+.project-card,
+.timeline-content,
+.education-card,
+.certificate-card,
+.contact-form,
+.contact-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+
+/* Nav glass */
     .sticky-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1001;
-    }
+    background: rgba(10, 14, 23, 0.55);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* Keep header dark when scrolled */
+.sticky-nav.scrolled {
+    background: rgba(10, 14, 23, 0.8);
+    border-bottom-color: rgba(255,255,255,0.12);
+}
+
+/* Hero override to be transparent on dark */
+.hero {
+    background: transparent !important;
+    min-height: 85vh;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: -0.02em;
+    text-shadow: 0 8px 30px rgba(34, 211, 238, 0.25);
+}
+
+.hero-subtitle {
+    color: #d1d5db;
+}
+
+/* Neon accent underlines */
+h1::after, h2::after {
+    background: linear-gradient(90deg, var(--neon), var(--neon2));
+}
+
+/* Buttons with soft glow */
+.btn-primary {
+    background: linear-gradient(135deg, var(--neon2), var(--neon));
+    box-shadow: 0 10px 25px rgba(34, 211, 238, 0.25), 0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 16px 40px rgba(34, 211, 238, 0.35), 0 0 0 1px rgba(255,255,255,0.12) inset;
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.2);
+    color: #e5e7eb;
+}
+
+/* Card hover glow + tilt-ready */
+.project-card,
+.education-card,
+.certificate-card,
+.stat-item {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    will-change: transform;
+}
+
+.project-card:hover,
+.education-card:hover,
+.certificate-card:hover,
+.stat-item:hover {
+    box-shadow: 0 20px 60px rgba(34, 211, 238, 0.15), 0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+/* Project image slight scale on hover for depth */
+.project-image img { transition: transform 0.5s ease; }
+.project-card:hover .project-image img { transform: scale(1.05); }
+
+/* Contact form glass highlight */
+.contact-form {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+/* Footer darker glass */
+footer { background: rgba(10, 14, 23, 0.65); }
+
+/* Parallax helper preserves 3D */
+[data-parallax] { will-change: transform; }
+
+/* Particle canvas respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #particle-canvas { display: none; }
+}
+
+/* Fix light backgrounds for dark glass theme */
+.section.dark { background: transparent; }
+.project-image, .certificate-image { background: rgba(255,255,255,0.04); }
+.image-frame { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); }
+.detail-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); }
+.stats { gap: 1rem; }
+.stat-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); }
+.project-category { background: rgba(255,255,255,0.06); color: #cbd5e1; }
+.project-tech span { background: rgba(255,255,255,0.06); color: #cbd5e1; }
+.project-links a { background: rgba(255,255,255,0.1); color: var(--neon2); border: 1px solid rgba(255,255,255,0.14); }
+.project-links a:hover { background: linear-gradient(135deg, var(--neon2), var(--neon)); color: white; }
+.skill-bar { background: rgba(255,255,255,0.12); }
+.contact-details .contact-item { background: rgba(255,255,255,0.06); }
+
+/* Form controls on dark glass */
+.form-group input,
+.form-group textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: #e5e7eb;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgba(96, 165, 250, 0.65);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+}
+
+/* Form messages harmonized for dark */
+.form-message.success {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.form-message.error {
+    background: rgba(220, 38, 38, 0.12);
+    color: #f87171;
+    border: 1px solid rgba(220, 38, 38, 0.35);
 }

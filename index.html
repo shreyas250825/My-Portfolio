@@ -33,20 +33,24 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="style.css?v=2" as="style">
     <link rel="preload" href="assets/Profile%20Photo.jpeg" as="image">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="site-bg" aria-hidden="true">
+        <canvas id="particle-canvas"></canvas>
+        <div class="bg-gradient"></div>
+    </div>
     <!-- Navigation -->
     <nav class="sticky-nav" role="navigation" aria-label="Primary">
         <div class="container">
             <div class="nav-brand">
-                <span class="logo">SS</span>
+                <span class="logo" role="button" aria-label="Refresh page" tabindex="0">SS</span>
                 <span class="name">Shreyas Salian</span>
             </div>
             <ul class="nav-links" id="primary-navigation">
@@ -69,10 +73,10 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Shreyas Salian</h1>
-                <h2 class="hero-subtitle">AI Engineer & Full-Stack Developer</h2>
-                <p class="hero-text">Building intelligent systems that bridge AI theory with real-world applications</p>
-                                 <div class="hero-buttons">
+                <h1 class="hero-title" data-parallax="0.08">Shreyas Salian</h1>
+                <h2 class="hero-subtitle" data-parallax="0.12">AI Engineer & Full-Stack Developer</h2>
+                <p class="hero-text" data-parallax="0.15">Building intelligent systems that bridge AI theory with real-world applications</p>
+                                 <div class="hero-buttons" data-parallax="0.18">
                      <a href="#projects" class="btn btn-primary">View My Work</a>
                      <a href="#contact" class="btn btn-secondary">Hire Me</a>
                  </div>
@@ -793,6 +797,7 @@
         <textarea name="message"></textarea>
     </form>
     
-    <script defer src="script.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-0b+1kiUu4dG64aZy3jpH6r2ilcZ8UMKFm+HAY3n8rcF4Qn23cPDHkc9iGq9n3usmSZ8NDeI3jTzFJj0k0mY5ow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="script.js?v=2"></script>
 </body>
 </html>

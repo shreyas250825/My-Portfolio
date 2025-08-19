@@ -263,4 +263,109 @@ document.addEventListener('DOMContentLoaded', function() {
     skillBars.forEach(bar => {
         skillObserver.observe(bar);
     });
+
+    // SS logo refresh control
+    const logoEl = document.querySelector('.nav-brand .logo');
+    if (logoEl) {
+        logoEl.addEventListener('click', () => {
+            window.location.reload();
+        });
+        logoEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.location.reload();
+            }
+        });
+    }
+
+    // NEW: Initialize VanillaTilt on cards and buttons (if library loaded)
+    if (window.VanillaTilt) {
+        const tiltSelectors = '.project-card, .education-card, .certificate-card, .stat-item, .btn';
+        document.querySelectorAll(tiltSelectors).forEach(el => {
+            window.VanillaTilt.init(el, {
+                max: 8,
+                speed: 400,
+                glare: true,
+                'max-glare': 0.15,
+                gyroscope: true,
+                reverse: false,
+            });
+        });
+    }
+
+    // NEW: Lightweight particles background
+    const particleCanvas = document.getElementById('particle-canvas');
+    if (particleCanvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const ctx = particleCanvas.getContext('2d');
+        let width = particleCanvas.width = window.innerWidth;
+        let height = particleCanvas.height = window.innerHeight;
+        const particleCount = Math.min(80, Math.floor(width / 20));
+        const particles = new Array(particleCount).fill(0).map(() => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: Math.random() * 1.6 + 0.4,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+        }));
+        const connectDist = 110;
+
+        function resize() {
+            width = particleCanvas.width = window.innerWidth;
+            height = particleCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize, { passive: true });
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            // Glow effect
+            ctx.fillStyle = 'rgba(96, 165, 250, 0.9)';
+            ctx.strokeStyle = 'rgba(34, 211, 238, 0.18)';
+            ctx.lineWidth = 1;
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // draw connections
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const a = particles[i];
+                    const b = particles[j];
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < connectDist) {
+                        ctx.globalAlpha = 1 - dist / connectDist;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                        ctx.globalAlpha = 1;
+                    }
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    }
+
+    // NEW: Subtle parallax on hero elements
+    const parallaxEls = document.querySelectorAll('[data-parallax]');
+    if (parallaxEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.addEventListener('scroll', () => {
+            const offset = window.scrollY;
+            parallaxEls.forEach(el => {
+                const factor = parseFloat(el.getAttribute('data-parallax')) || 0.1;
+                el.style.transform = `translate3d(0, ${offset * factor}px, 0)`;
+            });
+        }, { passive: true });
+    }
 });
