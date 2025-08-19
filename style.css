@@ -31,6 +31,22 @@ body {
     overflow-x: hidden;
 }
 
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px 12px;
+    z-index: 10000;
+    border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -228,6 +244,16 @@ p {
     60% { transform: translateY(-10px) translateX(-50%); }
 }
 
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 .sticky-nav {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
@@ -320,6 +346,12 @@ p {
     align-items: center;
     gap: 0.5rem;
     border: 2px solid transparent;
+}
+
+/* Focus visibility for accessibility */
+:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
 }
 
 .nav-links a:hover,

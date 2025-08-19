@@ -1,136 +1,84 @@
-# Shreyas Salian - Portfolio Website
+# Shreyas Salian - Portfolio Website (Netlify)
 
-A modern, responsive portfolio website showcasing AI Engineering and Full-Stack Development skills.
+Modern, responsive personal portfolio hosted on Netlify. Static, lightweight, and optimized for Core Web Vitals and Lighthouse 100/100 across Performance, Accessibility, Best Practices, and SEO.
+
+## Tech & Hosting
+- **Static site**: HTML, CSS, JS (no backend)
+- **Hosting**: Netlify
+- **Forms**: Netlify Forms (serverless)
+- **CI**: Deploy on push (optional)
 
 ## Features
+- **Responsive UI** with mobile-first layout
+- **Filterable projects** grid
+- **Accessible navigation** (skip link, focus-visible, keyboard support)
+- **Core Web Vitals** optimized (lazy-load images, deferred JS)
+- **SEO**: canonical tags, OpenGraph/Twitter cards, sitemap
+- **Security**: hardened headers via `netlify.toml`
 
-- **Responsive Design**: Works perfectly on all devices
-- **Interactive Projects**: Filterable project showcase with live demos
-- **Smooth Animations**: CSS animations and smooth scrolling
-- **Contact Form**: Fully functional contact form with PHP backend
-- **Modern UI**: Clean, professional design with gradient accents
+## Getting Started
+1. Clone the repo to your machine.
+2. Serve locally (any static server) or open `index.html` directly.
+3. Update content in `index.html`, styles in `style.css`, behavior in `script.js`.
 
-## Contact Form Setup
+## Netlify Deployment
+1. Create a new Netlify site and connect the repo.
+2. Build settings: no build command. Publish directory: project root (`.`).
+3. Ensure these files exist:
+   - `index.html`, `style.css`, `script.js`, `sitemap.xml`
+   - `netlify.toml` (headers + caching)
+   - `_redirects` (SPA fallback)
 
-The contact form is now fully functional using **pure PHP** - no third-party services required! Here's what you need:
+## Netlify Forms
+The contact form uses Netlify Forms. It requires:
+- A visible form with `data-netlify="true"` and hidden `form-name` input.
+- A hidden duplicate form at the bottom for crawler detection (already included).
 
-### Requirements
+Submitting will be handled by Netlify automatically. View submissions in Netlify dashboard.
 
-1. **PHP-enabled hosting** (Most web hosts support this)
-2. **Server permissions to send mail** (Check with your host)
-3. **SPF/DKIM records** (To prevent emails going to spam)
+## Performance & CWV
+Implemented optimizations:
+- Preconnect to fonts/CDN; defer non-critical scripts
+- Lazy-load images with width/height to prevent CLS
+- `prefers-reduced-motion` support
+- Long-term caching via `netlify.toml` for `assets/`, `style.css`, `script.js`
+- Passive scroll listeners
 
-### How It Works
+## Accessibility
+- Skip-to-content link
+- `aria-*` attributes for nav/menu buttons
+- Visible focus states (`:focus-visible`)
+- `aria-live` form messages
 
-1. **`mailer.php`** - Server-side script that processes form submissions
-2. **Form validation** - Client-side validation with real-time feedback
-3. **Direct email delivery** - Emails sent directly to your inbox using PHP's `mail()` function
+## SEO
+- Canonical URL: `https://shreyassalian.netlify.app/`
+- OpenGraph/Twitter meta tags
+- Updated `sitemap.xml`
+- JSON-LD Person schema
 
-### Configuration
-
-1. **Update email address**: Open `mailer.php` and change the `$to` variable to your email
-2. **Upload files**: Upload both `index.html` and `mailer.php` to your web server
-3. **Test the form**: Fill out the contact form and submit to verify it works
-
-### Email Headers
-
-The form includes enhanced headers for better email delivery:
-- Proper MIME version and content type
-- Reply-To header for easy responses
-- X-Mailer identification
-- UTF-8 character encoding
-
-### Spam Prevention Tips
-
-To improve email delivery and reduce spam:
-1. **Set up SPF records** for your domain
-2. **Configure DKIM** authentication
-3. **Use a reputable hosting provider** with good mail reputation
-4. **Monitor your spam folder** initially
-
-## Current Features
-
-- ✅ Responsive navigation with mobile menu
-- ✅ Smooth scrolling and animations
-- ✅ Project filtering by category
-- ✅ Interactive skills visualization
-- ✅ Professional timeline for experience
-- ✅ **PHP-based contact form** (no third-party dependencies)
-- ✅ Social media integration
-- ✅ Back to top button
-- ✅ SEO optimized
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Performance
-
-- Optimized images and assets
-- Minimal JavaScript footprint
-- CSS animations using transform/opacity for smooth performance
-- **No external API calls** - everything runs on your server
-
-## Customization
-
-The website uses CSS custom properties (variables) for easy customization:
-
-```css
-:root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --text-color: #1f2937;
-    /* ... more variables */
-}
-```
-
-## Deployment
-
-1. **Upload all files** to your PHP-enabled web hosting service
-2. **Ensure `mailer.php`** is in the same directory as `index.html`
-3. **Test the contact form** functionality
-4. **Verify email delivery** and check spam folders initially
-5. **Set up SPF/DKIM** records for better deliverability
+## Customize
+- Update images in `assets/` (keep file names or change references in `index.html`).
+- Change colors/typography via CSS variables in `style.css` `:root`.
+- Add/modify projects in the Projects section of `index.html`.
 
 ## File Structure
-
 ```
-your-portfolio/
-├── index.html          # Main website
-├── style.css           # Styling
-├── script.js           # JavaScript functionality
-├── mailer.php          # PHP email backend
-├── assets/             # Images and media
-└── README.md           # This file
+my degree website/
+├── index.html
+├── style.css
+├── script.js
+├── assets/
+├── sitemap.xml
+├── _redirects
+└── netlify.toml
 ```
 
-## Troubleshooting
+## Lighthouse Tips
+If you are slightly below 100:
+- Ensure a stable network when testing; run Lighthouse in Incognito
+- Warm cache once, then test
+- Avoid throttling external CDNs (fonts, icons) by keeping preconnects
+- Consider self-hosting fonts/icons if CDN latency fluctuates
 
-### Common Issues
-
-1. **Emails not sending**: Check if your host allows PHP mail() function
-2. **Emails in spam**: Set up SPF/DKIM records for your domain
-3. **Form not working**: Ensure `mailer.php` is in the same directory
-4. **Validation errors**: Check browser console for JavaScript errors
-
-### Alternative Solutions
-
-If PHP mail() doesn't work on your hosting:
-1. **Contact your host** about mail permissions
-2. **Use PHPMailer** for more reliable delivery
-3. **Consider SMTP** configuration if available
-
-## Support
-
-For any issues with the contact form:
-1. Check your hosting provider's PHP mail support
-2. Verify file permissions and directory structure
-3. Test with a simple PHP script first
-4. Contact your hosting provider for mail configuration help
-
----
-
-**Note**: This solution uses pure PHP with no external dependencies. All emails are processed and sent directly from your server to your inbox.
+## License
+MIT

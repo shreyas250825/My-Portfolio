@@ -9,17 +9,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const icon = this.querySelector('i');
         if (navLinks.classList.contains('active')) {
             icon.className = 'fas fa-times';
+            this.setAttribute('aria-expanded', 'true');
         } else {
             icon.className = 'fas fa-bars';
+            this.setAttribute('aria-expanded', 'false');
         }
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+        if (mobileMenuBtn && navLinks && !mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove('active');
             const icon = mobileMenuBtn.querySelector('i');
             icon.className = 'fas fa-bars';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
         }
     });
 
@@ -39,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Close mobile menu if open
                 navLinks.classList.remove('active');
+                if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
         });
     });
@@ -74,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
         
         lastScrollY = window.scrollY;
-    });
+    }, { passive: true });
 
     // Back to top button
     const backToTopBtn = document.querySelector('.back-to-top');
@@ -86,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             backToTopBtn.classList.remove('visible');
         }
-    });
+    }, { passive: true });
     
     // Back to top functionality
     backToTopBtn.addEventListener('click', function(e) {
@@ -143,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Update active link on scroll
-    window.addEventListener('scroll', updateActiveNavLink);
+    window.addEventListener('scroll', updateActiveNavLink, { passive: true });
     
     // Intersection Observer for section animations
     const sections = document.querySelectorAll('.section');

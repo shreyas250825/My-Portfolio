@@ -7,20 +7,26 @@
     <meta name="description" content="Professional portfolio of Shreyas Salian - AI Engineer & Full-Stack Developer specializing in machine learning and embedded systems.">
     <meta name="keywords" content="AI Engineer, Full-Stack Developer, Machine Learning, Python, React, TensorFlow, Portfolio">
     <meta name="author" content="Shreyas Salian">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="canonical" href="https://shreyassalian.netlify.app/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://shreyas-salian-portfolio.netlify.app/">
+    <meta property="og:url" content="https://shreyassalian.netlify.app/">
     <meta property="og:title" content="Shreyas Salian | AI Engineer & Full-Stack Developer">
     <meta property="og:description" content="Professional portfolio of Shreyas Salian - AI Engineer & Full-Stack Developer specializing in machine learning and embedded systems.">
-    <meta property="og:image" content="https://shreyas-salian-portfolio.netlify.app/assets/Profile%20Photo.jpeg">
+    <meta property="og:image" content="https://shreyassalian.netlify.app/assets/Profile%20Photo.jpeg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://shreyas-salian-portfolio.netlify.app/">
+    <meta property="twitter:url" content="https://shreyassalian.netlify.app/">
     <meta property="twitter:title" content="Shreyas Salian | AI Engineer & Full-Stack Developer">
     <meta property="twitter:description" content="Professional portfolio of Shreyas Salian - AI Engineer & Full-Stack Developer specializing in machine learning and embedded systems.">
-    <meta property="twitter:image" content="https://shreyas-salian-portfolio.netlify.app/assets/Profile%20Photo.jpeg">
+    <meta property="twitter:image" content="https://shreyassalian.netlify.app/assets/Profile%20Photo.jpeg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/Profile%20Photo.jpeg">
@@ -35,27 +41,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Navigation -->
-    <nav class="sticky-nav">
+    <nav class="sticky-nav" role="navigation" aria-label="Primary">
         <div class="container">
             <div class="nav-brand">
                 <span class="logo">SS</span>
                 <span class="name">Shreyas Salian</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-                <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                <li><a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <ul class="nav-links" id="primary-navigation">
+                <li><a href="#about"><i class="fas fa-user" aria-hidden="true"></i> About</a></li>
+                <li><a href="#skills"><i class="fas fa-code" aria-hidden="true"></i> Skills</a></li>
+                <li><a href="#projects"><i class="fas fa-project-diagram" aria-hidden="true"></i> Projects</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase" aria-hidden="true"></i> Experience</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</a></li>
+                <li><a href="#certificates"><i class="fas fa-certificate" aria-hidden="true"></i> Certificates</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a></li>
             </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
         </div>
     </nav>
+    <main id="main-content">
 
     <!-- Hero Section -->
     <header class="hero">
@@ -72,7 +80,7 @@
             <!-- Hero image section removed for cleaner look -->
         </div>
         <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
         </div>
     </header>
 
@@ -131,12 +139,12 @@
                 </div>
                 <div class="profile-image">
                     <div class="image-frame">
-                        <img src="assets/Profile Photo.jpeg" alt="Shreyas Salian - AI Engineer & Full-Stack Developer" class="profile-photo">
+                        <img src="assets/Profile Photo.jpeg" alt="Portrait of Shreyas Salian, AI Engineer & Full-Stack Developer" class="profile-photo" width="250" height="250" loading="lazy" decoding="async">
                     </div>
                     <div class="social-links">
-                        <a href="https://github.com/shreyas250825" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:shreyassalian1806@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="mailto:shreyassalian1806@gmail.com" class="social-link" aria-label="Send email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -308,10 +316,10 @@
                 <!-- AI Mock Interview Simulator -->
                 <div class="project-card" data-category="ai">
                                          <div class="project-image">
-                         <img src="assets/AI Mock Interview Simulator.jpeg" alt="AI Mock Interview Simulator">
+                         <img src="assets/AI Mock Interview Simulator.jpeg" alt="Screenshot of AI Mock Interview Simulator project" loading="lazy" decoding="async">
                          <div class="project-links">
-                            <a href="https://github.com/shreyas250825/AI-Mock-Interview-Simulator" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="https://interview-mock-simulator-basic.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/shreyas250825/AI-Mock-Interview-Simulator" target="_blank" rel="noopener noreferrer" aria-label="Open AI Mock Interview Simulator on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            <a href="https://interview-mock-simulator-basic.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Open AI Mock Interview Simulator live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -334,10 +342,10 @@
                                  <!-- Load Management System -->
                  <div class="project-card" data-category="embedded">
                      <div class="project-image">
-                         <img src="assets/Load Management System.jpeg" alt="Load Management System">
+                         <img src="assets/Load Management System.jpeg" alt="Screenshot of Load Management System project" loading="lazy" decoding="async">
                          <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="https://loadmanagementsystem.streamlit.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            <a href="https://loadmanagementsystem.streamlit.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -360,10 +368,10 @@
                                  <!-- Smart Attendance System -->
                  <div class="project-card" data-category="ai">
                      <div class="project-image">
-                         <img src="assets/Smart Attendance System.png" alt="Smart Attendance System">
+                         <img src="assets/Smart Attendance System.png" alt="Screenshot of Smart Attendance System project" loading="lazy" decoding="async">
                          <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Smart-Attendance-System" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="https://smart-attendance-system-zeta.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/shreyas250825/Smart-Attendance-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            <a href="https://smart-attendance-system-zeta.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -386,10 +394,10 @@
                                  <!-- Strictly Typed Video Quiz Player -->
                  <div class="project-card" data-category="web">
                      <div class="project-image">
-                         <img src="assets/Strictly Typed Video Quiz Player.png" alt="Strictly Typed Video Quiz Player">
+                         <img src="assets/Strictly Typed Video Quiz Player.png" alt="Screenshot of Strictly Typed Video Quiz Player project" loading="lazy" decoding="async">
                          <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Strictly-Typed-Video-Quiz-Player" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="https://strictly-typed-video-quiz-player-zm.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/shreyas250825/Strictly-Typed-Video-Quiz-Player" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            <a href="https://strictly-typed-video-quiz-player-zm.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -412,10 +420,10 @@
                                  <!-- Tab Activity Tracker -->
                  <div class="project-card" data-category="web">
                      <div class="project-image">
-                         <img src="assets/Tab Activity Checker.png" alt="Tab Activity Tracker">
+                         <img src="assets/Tab Activity Checker.png" alt="Screenshot of Tab Activity Tracker project" loading="lazy" decoding="async">
                          <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Tab-Activity-Tracker" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="https://tab-activity-tracker.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/shreyas250825/Tab-Activity-Tracker" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            <a href="https://tab-activity-tracker.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -438,9 +446,9 @@
                                  <!-- Handwritten Digit Recognition -->
                  <div class="project-card" data-category="ai">
                      <div class="project-image">
-                         <img src="assets/Hand Digit Recognition System.webp" alt="Handwritten Digit Recognition">
+                         <img src="assets/Hand Digit Recognition System.webp" alt="Screenshot of Handwritten Digit Recognition project" loading="lazy" decoding="async">
                          <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Handwritten-Digit-Recognition" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/shreyas250825/Handwritten-Digit-Recognition" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -461,7 +469,7 @@
             </div>
             
             <div class="section-footer">
-                <a href="https://github.com/shreyas250825" target="_blank" class="btn btn-outline">View All Projects on GitHub</a>
+                <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View All Projects on GitHub</a>
             </div>
         </div>
     </section>
@@ -488,8 +496,8 @@
                             <li>Documented system architecture and user manuals</li>
                         </ul>
                         <div class="timeline-links">
-                            <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank"><i class="fab fa-github"></i> View Project</a>
-                            <a href="https://loadmanagementsystem.streamlit.app" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> View Project</a>
+                            <a href="https://loadmanagementsystem.streamlit.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -569,7 +577,7 @@
             <div class="certificates-grid">
                                  <div class="certificate-card">
                      <div class="certificate-image">
-                         <div class="custom-placeholder timetable-certificate-placeholder">
+                         <div class="custom-placeholder timetable-certificate-placeholder" role="img" aria-label="Certificate placeholder: Timetable Automation System">
                              <i class="fas fa-calendar-alt"></i>
                              <span>Timetable Automation System</span>
                              <small>Certificate of Deployment</small>
@@ -579,14 +587,14 @@
                          <h3>Timetable Automation System</h3>
                          <p>Certificate of Deployment from MS Ramaiah University of Applied Sciences</p>
                          <div class="certificate-footer">
-                             <a href="https://drive.google.com/file/d/1LDnEvaKusj5f3SKUV1ugoeK0FER1rPiR/view" target="_blank" class="btn btn-small btn-primary">View Certificate</a>
+                             <a href="https://drive.google.com/file/d/1LDnEvaKusj5f3SKUV1ugoeK0FER1rPiR/view" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-primary">View Certificate</a>
                          </div>
                      </div>
                  </div>
                  
                  <div class="certificate-card">
                      <div class="certificate-image">
-                         <div class="custom-placeholder nba-certificate-placeholder">
+                         <div class="custom-placeholder nba-certificate-placeholder" role="img" aria-label="Certificate placeholder: College NBA Website">
                              <i class="fas fa-university"></i>
                              <span>College NBA Website</span>
                              <small>Certificate of Deployment</small>
@@ -596,7 +604,7 @@
                          <h3>College NBA Website</h3>
                          <p>Certificate of Deployment from MS Ramaiah University of Applied Sciences</p>
                          <div class="certificate-footer">
-                             <a href="https://drive.google.com/file/d/1IJxkaUUnjNlGhlDZfiIQDd64iqzUKKxv/view" target="_blank" class="btn btn-small btn-primary">View Certificate</a>
+                             <a href="https://drive.google.com/file/d/1IJxkaUUnjNlGhlDZfiIQDd64iqzUKKxv/view" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-primary">View Certificate</a>
                          </div>
                      </div>
                  </div>
@@ -643,8 +651,8 @@
                     </div>
                     
                     <div class="contact-social">
-                        <a href="https://github.com/shreyas250825" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 
@@ -657,22 +665,22 @@
                         </div>
                         <div class="form-group">
                             <label for="name" class="sr-only">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required aria-describedby="nameError" aria-label="Your Name">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required aria-describedby="nameError" aria-label="Your Name" autocomplete="name">
                             <div class="error-message" id="nameError" role="alert"></div>
                         </div>
                         <div class="form-group">
                             <label for="email" class="sr-only">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required aria-describedby="emailError" aria-label="Your Email">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required aria-describedby="emailError" aria-label="Your Email" autocomplete="email">
                             <div class="error-message" id="emailError" role="alert"></div>
                         </div>
                         <div class="form-group">
                             <label for="subject" class="sr-only">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required aria-describedby="subjectError" aria-label="Subject">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required aria-describedby="subjectError" aria-label="Subject" autocomplete="on">
                             <div class="error-message" id="subjectError" role="alert"></div>
                         </div>
                         <div class="form-group">
                             <label for="message" class="sr-only">Your Message</label>
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-describedby="messageError" aria-label="Your Message"></textarea>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-describedby="messageError" aria-label="Your Message" autocomplete="on"></textarea>
                             <div class="error-message" id="messageError" role="alert"></div>
                         </div>
                         <button type="submit" class="btn btn-primary" id="submitBtn">
@@ -681,7 +689,7 @@
                                 <i class="fas fa-spinner fa-spin"></i> Sending...
                             </span>
                         </button>
-                        <div class="form-message" id="formMessage"></div>
+                        <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
                         
 
 
@@ -693,6 +701,7 @@
         </div>
     </section>
 
+    </main>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -732,15 +741,15 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 Shreyas Salian. All rights reserved.</p>
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/shreyas250825" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -750,8 +759,8 @@
         "name": "Shreyas Salian",
         "jobTitle": "AI Engineer & Full-Stack Developer",
         "description": "AI Engineer and Full-Stack Developer specializing in machine learning and embedded systems",
-        "url": "https://shreyas-salian-portfolio.netlify.app/",
-        "image": "https://shreyas-salian-portfolio.netlify.app/assets/Profile%20Photo.jpeg",
+        "url": "https://shreyassalian.netlify.app/",
+        "image": "https://shreyassalian.netlify.app/assets/Profile%20Photo.jpeg",
         "sameAs": [
             "https://github.com/shreyas250825",
             "https://www.linkedin.com/in/shreyas-salian25/"
@@ -784,6 +793,6 @@
         <textarea name="message"></textarea>
     </form>
     
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </body>
 </html>
