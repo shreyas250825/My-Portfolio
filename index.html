@@ -30,6 +30,8 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/Profile%20Photo.jpeg">
+    <!-- SVG favicon (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"%3E%3Cdefs%3E%3CradialGradient id="g" cx="50%25" cy="45%25" r="60%25"%3E%3Cstop offset="0%25" stop-color="%2360a5fa"/%3E%3Cstop offset="100%25" stop-color="%2322d3ee"/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width="64" height="64" rx="12" fill="%230b1220"/%3E%3Ccircle cx="32" cy="32" r="26" fill="url(%23g)" opacity="0.25"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="26" fill="white"%3ESS%3C/text%3E%3C/svg%3E'>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
@@ -46,11 +48,12 @@
         <canvas id="particle-canvas"></canvas>
         <div class="bg-gradient"></div>
     </div>
+    <div class="cursor-glow" aria-hidden="true"></div>
     <!-- Navigation -->
     <nav class="sticky-nav" role="navigation" aria-label="Primary">
         <div class="container">
             <div class="nav-brand">
-                <span class="logo" role="button" aria-label="Refresh page" tabindex="0">SS</span>
+                <span class="logo magnetic" role="button" aria-label="Refresh page" tabindex="0">SS</span>
                 <span class="name">Shreyas Salian</span>
             </div>
             <ul class="nav-links" id="primary-navigation">
@@ -74,14 +77,22 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title" data-parallax="0.08">Shreyas Salian</h1>
-                <h2 class="hero-subtitle" data-parallax="0.12">AI Engineer & Full-Stack Developer</h2>
+                <h2 class="hero-subtitle" data-parallax="0.12" data-typed='["AI Engineer","Full-Stack Developer","ML Enthusiast","Embedded Systems"]'><span id="typed"></span></h2>
                 <p class="hero-text" data-parallax="0.15">Building intelligent systems that bridge AI theory with real-world applications</p>
                                  <div class="hero-buttons" data-parallax="0.18">
-                     <a href="#projects" class="btn btn-primary">View My Work</a>
-                     <a href="#contact" class="btn btn-secondary">Hire Me</a>
+                     <a href="#projects" class="btn btn-primary magnetic">View My Work</a>
+                     <a href="#contact" class="btn btn-secondary magnetic">Hire Me</a>
                  </div>
             </div>
             <!-- Hero image section removed for cleaner look -->
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+            <canvas id="hero-network"></canvas>
+            <div class="hero-orbs">
+                <span class="orb orb-a"></span>
+                <span class="orb orb-b"></span>
+                <span class="orb orb-c"></span>
+            </div>
         </div>
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down" aria-hidden="true"></i>
@@ -139,6 +150,10 @@
                             <span class="stat-number">98.2%</span>
                             <span class="stat-label">Model Accuracy</span>
                         </div>
+                    </div>
+                    <div class="mission-card">
+                        <h3>Why I Build</h3>
+                        <p>I love turning complex ideas into useful, delightful products. My mission is to craft AI-driven experiences that feel effortless, behave responsibly, and make a measurable impact.</p>
                     </div>
                 </div>
                 <div class="profile-image">
@@ -473,7 +488,7 @@
             </div>
             
             <div class="section-footer">
-                <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View All Projects on GitHub</a>
+                <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="btn btn-outline magnetic">View All Projects on GitHub</a>
             </div>
         </div>
     </section>
@@ -738,7 +753,7 @@
                 
                 <div class="footer-cta">
                     <h4>Ready to start your project?</h4>
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#contact" class="btn btn-primary magnetic">Get In Touch</a>
                 </div>
             </div>
             

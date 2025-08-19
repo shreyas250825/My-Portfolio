@@ -365,7 +365,122 @@ document.addEventListener('DOMContentLoaded', function() {
             parallaxEls.forEach(el => {
                 const factor = parseFloat(el.getAttribute('data-parallax')) || 0.1;
                 el.style.transform = `translate3d(0, ${offset * factor}px, 0)`;
+                el.style.willChange = 'transform';
             });
         }, { passive: true });
+    }
+ 
+    // NEW: Hero network animation (lightweight)
+    const heroCanvas = document.getElementById('hero-network');
+    if (heroCanvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const ctx = heroCanvas.getContext('2d');
+        function sizeHero() {
+            heroCanvas.width = heroCanvas.clientWidth;
+            heroCanvas.height = heroCanvas.clientHeight;
+        }
+        sizeHero();
+        window.addEventListener('resize', sizeHero, { passive: true });
+        const nodes = Array.from({ length: 45 }, () => ({
+            x: Math.random() * heroCanvas.width,
+            y: Math.random() * heroCanvas.height,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+        }));
+        const linkDist = 140;
+        function tick() {
+            ctx.clearRect(0,0,heroCanvas.width, heroCanvas.height);
+            ctx.fillStyle = 'rgba(34, 211, 238, 0.9)';
+            ctx.strokeStyle = 'rgba(96, 165, 250, 0.25)';
+            ctx.lineWidth = 1;
+            for (const n of nodes) {
+                n.x += n.vx; n.y += n.vy;
+                if (n.x < 0 || n.x > heroCanvas.width) n.vx *= -1;
+                if (n.y < 0 || n.y > heroCanvas.height) n.vy *= -1;
+                ctx.beginPath(); ctx.arc(n.x, n.y, 1.6, 0, Math.PI*2); ctx.fill();
+            }
+            for (let i=0;i<nodes.length;i++){
+                for (let j=i+1;j<nodes.length;j++){
+                    const a = nodes[i], b = nodes[j];
+                    const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+                    if (d < linkDist) { ctx.globalAlpha = 1 - d/linkDist; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); ctx.globalAlpha=1; }
+                }
+            }
+            requestAnimationFrame(tick);
+        }
+        tick();
+    }
+
+    // NEW: Typed effect for hero subtitle (no external libs)
+    const typedHost = document.getElementById('typed');
+    const typedWrapper = document.querySelector('[data-typed]');
+    if (typedHost && typedWrapper && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        try {
+            const phrases = JSON.parse(typedWrapper.getAttribute('data-typed'));
+            let p = 0, i = 0, deleting = false;
+            function typeLoop() {
+                const full = phrases[p];
+                if (!deleting) {
+                    i++;
+                    if (i > full.length) { deleting = true; setTimeout(typeLoop, 1300); return; }
+                } else {
+                    i--;
+                    if (i <= 0) { deleting = false; p = (p+1) % phrases.length; }
+                }
+                typedHost.textContent = full.slice(0, Math.max(0,i));
+                const delay = deleting ? 40 : 75;
+                setTimeout(typeLoop, delay);
+            }
+            typeLoop();
+        } catch {}
+    }
+
+    // NEW: Cursor glow tracking
+    const cursorGlow = document.querySelector('.cursor-glow');
+    if (cursorGlow && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let x = 0, y = 0, tx = 0, ty = 0;
+        const speed = 0.15;
+        function loop() {
+            x += (tx - x) * speed;
+            y += (ty - y) * speed;
+            cursorGlow.style.transform = `translate(${x}px, ${y}px)`;
+            requestAnimationFrame(loop);
+        }
+        loop();
+        window.addEventListener('pointermove', (e) => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    }
+
+    // NEW: Staggered reveal for groups (skills/projects/education/certificates)
+    const groups = ['.projects-grid', '.education-grid', '.certificates-grid'];
+    const staggerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const items = entry.target.querySelectorAll(':scope > *');
+                items.forEach((el, i) => { el.style.transitionDelay = `${Math.min(i*70, 600)}ms`; el.classList.add('visible'); });
+                staggerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    groups.forEach(sel => { const el = document.querySelector(sel); if (el) staggerObserver.observe(el); });
+ 
+    // Magnetic hover effect
+    const magnets = document.querySelectorAll('.magnetic');
+    if (magnets.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        magnets.forEach(el => {
+            const strength = 18; // px
+            let rect;
+            function updateRect(){ rect = el.getBoundingClientRect(); }
+            updateRect();
+            window.addEventListener('resize', updateRect, { passive: true });
+            el.addEventListener('mousemove', (e) => {
+                const mx = e.clientX - (rect.left + rect.width/2);
+                const my = e.clientY - (rect.top + rect.height/2);
+                const dx = Math.max(-strength, Math.min(strength, mx * 0.15));
+                const dy = Math.max(-strength, Math.min(strength, my * 0.15));
+                el.style.transform = `translate(${dx}px, ${dy}px)`;
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0, 0)';
+            });
+        });
     }
 });
