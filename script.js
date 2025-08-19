@@ -483,4 +483,47 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Quick View modal for projects
+    const quickView = document.getElementById('quickView');
+    const quickViewBody = document.getElementById('quickViewBody');
+    function openQuickView(contentHtml) {
+        if (!quickView) return;
+        quickViewBody.innerHTML = contentHtml;
+        quickView.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeQuickView() {
+        if (!quickView) return;
+        quickView.classList.remove('show');
+        quickViewBody.innerHTML = '';
+        document.body.style.overflow = '';
+    }
+    if (quickView) {
+        quickView.addEventListener('click', (e) => {
+            if (e.target.matches('[data-close="quickView"], .modal-backdrop')) closeQuickView();
+        });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeQuickView(); });
+    }
+    // Bind project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        const triggerEls = [card.querySelector('.project-image'), card.querySelector('.project-title')].filter(Boolean);
+        const img = card.querySelector('.project-image img');
+        const title = card.querySelector('.project-title')?.textContent?.trim() || 'Project';
+        const desc = card.querySelector('.project-description')?.textContent?.trim() || '';
+        const tech = Array.from(card.querySelectorAll('.project-tech span')).map(s=>s.textContent).join(' · ');
+        const links = card.querySelector('.project-links')?.innerHTML || '';
+        const footerLinks = card.querySelector('.project-footer')?.innerHTML || '';
+        const imgHtml = img ? `<img src="${img.getAttribute('src')}" alt="${img.getAttribute('alt')||title}" style="width:100%;height:auto;border-radius:12px;">` : '';
+        const bodyHtml = `
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+                <h3 style="margin:0;color:#e5e7eb;">${title}</h3>
+                ${imgHtml}
+                <p style="margin:0;color:#cbd5e1;">${desc}</p>
+                ${tech ? `<div style="color:#93c5fd">${tech}</div>` : ''}
+                <div style="display:flex;gap:0.5rem;align-items:center;">${links}</div>
+                <div style="display:flex;gap:0.5rem;align-items:center;">${footerLinks}</div>
+            </div>`;
+        triggerEls.forEach(t => t.addEventListener('click', () => openQuickView(bodyHtml)));
+    });
 });
