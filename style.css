@@ -1518,6 +1518,9 @@ footer {
     }
 }
 
+/* Ensure nav sits flush with the top across all sizes */
+.sticky-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1001; }
+
 /* NEW: Premium dark theme + glassmorphism */
 :root {
     --bg-start: #0b1220;
@@ -1619,6 +1622,10 @@ p { color: #cbd5e1; }
 .hero {
     background: transparent !important;
     min-height: 85vh;
+}
+/* Bring hero content slightly higher on desktop */
+@media (min-width: 769px) {
+    .hero { padding-top: 0; }
 }
 
 .hero-title {
