@@ -266,6 +266,42 @@ p {
 
 
 
+/* Desktop performance optimizations */
+@media (min-width: 769px) {
+    /* Reduce expensive operations on desktop */
+    .glassmorphism {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+    
+    /* Simplify shadows on desktop */
+    .project-card,
+    .skill-card,
+    .experience-card {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Optimize transforms for desktop */
+    .project-card:hover,
+    .skill-card:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* Optimize font rendering */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeSpeed;
+    }
+    
+    /* Prevent layout shifts */
+    img {
+        height: auto;
+        max-width: 100%;
+        display: block;
+    }
+}
+
 /* Mobile performance optimizations */
 @media (max-width: 768px) {
     /* Reduce expensive operations on mobile */
