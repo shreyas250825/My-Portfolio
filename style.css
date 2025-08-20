@@ -263,19 +263,83 @@ p {
     }
 }
 
+/* Global optimizations to prevent layout shifts */
+img {
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+/* Font loading optimization to prevent layout shifts */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Ensure consistent spacing and prevent shifts */
+.container {
+    contain: layout style;
+}
+
+/* Prevent layout shifts during font loading */
+h1, h2, h3, h4, h5, h6 {
+    font-display: fallback;
+}
+
+/* Stable grid layouts */
+.projects-grid,
+.skills-grid {
+    contain: layout;
+}
+
+/* Desktop performance optimizations */
+@media (min-width: 769px) {
+    /* Ensure stable layouts on desktop */
+    .project-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 1rem 1rem 0 0;
+    }
+    
+    .project-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        aspect-ratio: 3/2;
+    }
+    
+    .profile-photo {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+    }
+    
+    /* Maintain original desktop performance */
+    .glassmorphism {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    /* Prevent layout shifts in grid layouts */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+    
+    .project-card {
+        height: auto;
+        min-height: 400px;
+    }
+}
+
 /* Mobile performance optimizations */
 @media (max-width: 768px) {
     /* Reduce expensive operations on mobile */
     .glassmorphism {
         backdrop-filter: blur(8px) !important;
         -webkit-backdrop-filter: blur(8px) !important;
-    }
-    
-    /* Optimize image loading and prevent layout shifts */
-    img {
-        height: auto;
-        max-width: 100%;
-        display: block;
     }
     
     /* Reduce shadow complexity on mobile */
