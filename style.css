@@ -1,24 +1,20 @@
-/* Optimized CSS Variables and Base Styles */
+/* Modern CSS Reset and Base Styles */
 :root {
     --primary-color: #2563eb;
     --secondary-color: #1e40af;
-    --text-color: #e5e7eb;
-    --light-text: #cbd5e1;
-    --background: #0b1220;
-    --dark-background: #0e1629;
+    --text-color: #1f2937;
+    --light-text: #6b7280;
+    --background: #ffffff;
+    --dark-background: #f3f4f6;
     --accent-color: #3b82f6;
     --success-color: #10b981;
-    --border-color: rgba(255,255,255,0.12);
+    --border-color: #e5e7eb;
     --transition: all 0.3s ease;
-    --gradient-1: linear-gradient(135deg, #60a5fa 0%, #22d3ee 100%);
+    --gradient-1: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     --gradient-2: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-    --glass-bg: rgba(255, 255, 255, 0.06);
-    --glass-border: rgba(255, 255, 255, 0.12);
-    --neon: #22d3ee;
-    --neon2: #60a5fa;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -28,13 +24,11 @@
 }
 
 body {
-    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background: radial-gradient(1200px 800px at 20% 10%, #111827, transparent 60%),
-                linear-gradient(160deg, var(--background), var(--dark-background));
+    background-color: var(--background);
     overflow-x: hidden;
-    font-display: swap;
 }
 
 /* Skip link for keyboard users */
@@ -69,7 +63,6 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 3.5rem;
     background: var(--gradient-1);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -251,88 +244,13 @@ p {
     60% { transform: translateY(-10px) translateX(-50%); }
 }
 
-/* Performance optimizations for reduced motion */
+/* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
+    * {
+        animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
-    }
-}
-
-
-
-
-/* Desktop performance optimizations */
-@media (min-width: 769px) {
-    /* Reduce expensive operations on desktop */
-    .glassmorphism {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-    }
-    
-    /* Simplify shadows on desktop */
-    .project-card,
-    .skill-card,
-    .experience-card {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Optimize transforms for desktop */
-    .project-card:hover,
-    .skill-card:hover {
-        transform: translateY(-2px);
-    }
-    
-    /* Optimize font rendering */
-    body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeSpeed;
-    }
-    
-    /* Prevent layout shifts */
-    img {
-        height: auto;
-        max-width: 100%;
-        display: block;
-    }
-}
-
-/* Mobile performance optimizations */
-@media (max-width: 768px) {
-    /* Reduce expensive operations on mobile */
-    .glassmorphism {
-        backdrop-filter: blur(8px) !important;
-        -webkit-backdrop-filter: blur(8px) !important;
-    }
-    
-    /* Reduce shadow complexity on mobile */
-    .project-card,
-    .skill-card,
-    .experience-card {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-    }
-    
-    /* Optimize transforms for mobile */
-    .project-card:hover,
-    .skill-card:hover {
-        transform: translateY(-2px) !important;
-    }
-    
-    /* Prevent horizontal scrolling */
-    body {
-        overflow-x: hidden;
-    }
-    
-    /* Optimize font rendering */
-    body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeSpeed;
     }
 }
 
@@ -518,7 +436,6 @@ p {
 .detail-item i {
     font-size: 1.5rem;
     background: var(--gradient-1);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -559,7 +476,6 @@ p {
     font-size: 2rem;
     font-weight: 700;
     background: var(--gradient-1);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
@@ -670,7 +586,6 @@ p {
 .skill-header i {
     font-size: 1.5rem;
     background: var(--gradient-1);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -1089,7 +1004,6 @@ p {
 .contact-item i {
     font-size: 1.5rem;
     background: var(--gradient-1);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -1460,356 +1374,108 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive Design - Mobile First Approach */
-
-/* Large tablets and small desktops */
-@media (max-width: 1200px) {
-    .container {
-        max-width: 1140px;
-        padding: 0 1.5rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-}
-
-/* Tablets */
+/* Responsive Design */
 @media (max-width: 992px) {
-    .container {
-        padding: 0 1.25rem;
-    }
-    
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .timeline::before {
-        left: 30px;
-    }
-    
-    .timeline-item {
-        padding-left: 80px;
-    }
-    
-    .timeline-date {
-        width: 60px;
-        font-size: 0.85rem;
-        padding: 0.25rem;
     }
 }
 
-/* Mobile landscape and small tablets */
 @media (max-width: 768px) {
-    /* Typography scaling */
     h1 {
-        font-size: clamp(2rem, 8vw, 3rem);
-        line-height: 1.1;
+        font-size: 2.5rem;
     }
 
     h2 {
-        font-size: clamp(1.5rem, 6vw, 2.25rem);
-        line-height: 1.2;
-    }
-    
-    h3 {
-        font-size: clamp(1.25rem, 4vw, 1.5rem);
+        font-size: 2rem;
     }
 
-    /* Layout improvements */
     .profile-card {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 1.5rem;
-    }
-    
-    .profile-image {
-        order: -1;
-        margin-bottom: 1rem;
-    }
-    
-    .image-frame {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto 1rem;
     }
 
-    /* Enhanced mobile navigation */
     .nav-links {
         display: none;
         position: fixed;
-        top: 70px;
+        top: 80px;
         left: 0;
         right: 0;
-        background: rgba(10, 14, 23, 0.95);
-        backdrop-filter: blur(20px);
+        background: var(--dark-background);
         flex-direction: column;
-        padding: 1.5rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        padding: 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         z-index: 1000;
-        max-height: calc(100vh - 70px);
-        overflow-y: auto;
     }
 
     .nav-links.active {
         display: flex;
-        animation: slideDown 0.3s ease-out;
     }
 
     .nav-links li {
-        margin: 0.5rem 0;
+        margin: 1rem 0;
         text-align: center;
     }
 
     .nav-links a {
-        font-size: 1.1rem;
-        padding: 0.875rem 1.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        border-radius: 0.75rem;
+        font-size: 1.2rem;
+        padding: 1rem;
+        display: block;
+        border-radius: 0.5rem;
         transition: all 0.3s ease;
-        min-height: 48px;
-        border: 1px solid transparent;
     }
 
-    .nav-links a:hover,
-    .nav-links a:focus {
-        background: linear-gradient(135deg, var(--neon2), var(--neon));
+    .nav-links a:hover {
+        background: var(--primary-color);
         color: white;
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateX(10px);
     }
 
     .mobile-menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.75rem;
+        display: block;
+        padding: 0.5rem;
         border-radius: 0.5rem;
         transition: all 0.3s ease;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        min-width: 48px;
-        min-height: 48px;
-        color: #e5e7eb;
-        cursor: pointer;
     }
 
-    .mobile-menu-btn:hover,
-    .mobile-menu-btn:focus {
+    .mobile-menu-btn:hover {
         background: var(--primary-color);
         color: white;
-        transform: scale(1.05);
-    }
-    
-    .mobile-menu-btn:active {
-        transform: scale(0.95);
     }
 
-    /* Hero section mobile optimization */
     .hero {
-        min-height: 70vh;
-        padding: 4rem 0 3rem;
-        text-align: center;
-    }
-    
-    .hero-title {
-        margin-bottom: 0.75rem;
-    }
-    
-    .hero-subtitle {
-        font-size: clamp(1.1rem, 4vw, 1.25rem);
-        margin-bottom: 1.5rem;
-    }
-    
-    .hero-text {
-        font-size: clamp(1rem, 3vw, 1.125rem);
-        margin-bottom: 1.5rem;
-        max-width: 90%;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: 0.75rem;
-        align-items: center;
-        width: 100%;
-    }
-    
-    .hero-buttons .btn {
-        width: 100%;
-        max-width: 280px;
-        padding: 0.875rem 1.5rem;
-        font-size: 1rem;
+        padding: 6rem 0;
     }
 
-    /* Section spacing */
     .section {
-        padding: 3rem 0;
-    }
-    
-    .section-header {
-        margin-bottom: 2.5rem;
+        padding: 4rem 0;
     }
 
-    /* Grid improvements */
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .education-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    /* Card padding adjustments */
-    .profile-card { padding: 1.5rem; }
+    /* Extra breathing room on mobile */
+    .profile-card { padding: 2rem; }
     .contact-form { padding: 1.5rem; }
-    .skill-category { padding: 1.5rem; }
-    .project-content { padding: 1.25rem; }
-    .timeline-content { padding: 1.25rem; }
-    .education-card { padding: 1.5rem; }
-    
-    /* Container padding */
-    .container { padding: 0 1rem; }
-    
-    /* Timeline mobile adjustments */
-    .timeline::before {
-        left: 20px;
-    }
-    
-    .timeline-item {
-        padding-left: 60px;
-    }
-    
-    .timeline-date {
-        width: 50px;
-        font-size: 0.8rem;
-        padding: 0.25rem 0.125rem;
-        left: -5px;
-    }
+    .container { padding: 0 1.25rem; }
 }
 
-/* Mobile portrait */
 @media (max-width: 576px) {
     .container {
-        padding: 0 0.875rem;
-    }
-    
-    /* Typography further scaling */
-    h1 {
-        font-size: clamp(1.75rem, 10vw, 2.5rem);
-    }
-    
-    h2 {
-        font-size: clamp(1.375rem, 8vw, 2rem);
+        padding: 0 1rem;
     }
 
-    /* Stats and details single column */
     .stats {
         grid-template-columns: 1fr;
-        gap: 1rem;
     }
 
     .about-details {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .detail-item {
-        padding: 0.875rem;
     }
 
-    /* Hero adjustments */
-    .hero {
-        min-height: 60vh;
-        padding: 3rem 0 2rem;
-    }
-    
     .hero-buttons {
         flex-direction: column;
         width: 100%;
-        gap: 0.625rem;
     }
 
     .btn {
         width: 100%;
-        max-width: none;
-        padding: 0.875rem 1.25rem;
-        font-size: 0.95rem;
-    }
-    
-    /* Tighter spacing */
-    .section {
-        padding: 2.5rem 0;
-    }
-    
-    .section-header {
-        margin-bottom: 2rem;
-    }
-    
-    /* Card padding reduction */
-    .profile-card,
-    .contact-form,
-    .skill-category,
-    .education-card {
-        padding: 1.25rem;
-    }
-    
-    .project-content,
-    .timeline-content {
-        padding: 1rem;
-    }
-    
-    /* Image sizing */
-    .image-frame {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .project-image {
-        height: 180px;
-    }
-    
-    /* Filter buttons stack */
-    .projects-filter {
-        gap: 0.5rem;
-    }
-    
-    .filter-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-    
-    /* Social links smaller */
-    .social-link,
-    .social-icon {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-    }
-    
-    /* Timeline ultra-compact */
-    .timeline::before {
-        left: 15px;
-    }
-    
-    .timeline-item {
-        padding-left: 50px;
-    }
-    
-    .timeline-date {
-        width: 45px;
-        font-size: 0.75rem;
-        left: -7.5px;
     }
 }
 
