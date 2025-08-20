@@ -35,12 +35,14 @@
      -->    
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="style.css?v=3" as="style">
+    <link rel="preload" href="style.css?v=4" as="style">
     <link rel="preload" href="assets/Profile%20Photo.jpeg" as="image">
+    <link rel="preload" href="script.js" as="script">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -65,7 +67,7 @@
                 <li><a href="#certificates"><i class="fas fa-certificate" aria-hidden="true"></i> Certificates</a></li>
                 <li><a href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false" type="button">
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
         </div>
@@ -158,7 +160,7 @@
                 </div>
                 <div class="profile-image">
                     <div class="image-frame">
-                        <img src="assets/Profile Photo.jpeg" alt="Portrait of Shreyas Salian, AI Engineer & Full-Stack Developer" class="profile-photo" width="250" height="250" loading="lazy" decoding="async">
+                        <img src="assets/Profile Photo.jpeg" alt="Portrait of Shreyas Salian, AI Engineer & Full-Stack Developer" class="profile-photo" width="250" height="250" loading="eager" decoding="async">
                     </div>
                     <div class="social-links">
                         <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -335,7 +337,7 @@
                 <!-- AI Mock Interview Simulator -->
                 <div class="project-card" data-category="ai">
                                          <div class="project-image">
-                         <img src="assets/AI Mock Interview Simulator.jpeg" alt="Screenshot of AI Mock Interview Simulator project" loading="lazy" decoding="async">
+                         <img src="assets/AI Mock Interview Simulator.jpeg" alt="Screenshot of AI Mock Interview Simulator project" loading="lazy" decoding="async" width="300" height="200">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/AI-Mock-Interview-Simulator" target="_blank" rel="noopener noreferrer" aria-label="Open AI Mock Interview Simulator on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://interview-mock-simulator-basic.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Open AI Mock Interview Simulator live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -361,7 +363,7 @@
                                  <!-- Load Management System -->
                  <div class="project-card" data-category="embedded">
                      <div class="project-image">
-                         <img src="assets/Load Management System.jpeg" alt="Screenshot of Load Management System project" loading="lazy" decoding="async">
+                         <img src="assets/Load Management System.jpeg" alt="Screenshot of Load Management System project" loading="lazy" decoding="async" width="300" height="200">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://loadmanagementsystem.streamlit.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -387,7 +389,7 @@
                                  <!-- Smart Attendance System -->
                  <div class="project-card" data-category="ai">
                      <div class="project-image">
-                         <img src="assets/Smart Attendance System.png" alt="Screenshot of Smart Attendance System project" loading="lazy" decoding="async">
+                         <img src="assets/Smart Attendance System.png" alt="Screenshot of Smart Attendance System project" loading="lazy" decoding="async" width="300" height="200">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Smart-Attendance-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://smart-attendance-system-zeta.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -413,7 +415,7 @@
                                  <!-- Strictly Typed Video Quiz Player -->
                  <div class="project-card" data-category="web">
                      <div class="project-image">
-                         <img src="assets/Strictly Typed Video Quiz Player.png" alt="Screenshot of Strictly Typed Video Quiz Player project" loading="lazy" decoding="async">
+                         <img src="assets/Strictly Typed Video Quiz Player.png" alt="Screenshot of Strictly Typed Video Quiz Player project" loading="lazy" decoding="async" width="300" height="200">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Strictly-Typed-Video-Quiz-Player" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://strictly-typed-video-quiz-player-zm.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -439,7 +441,7 @@
                                  <!-- Tab Activity Tracker -->
                  <div class="project-card" data-category="web">
                      <div class="project-image">
-                         <img src="assets/Tab Activity Checker.png" alt="Screenshot of Tab Activity Tracker project" loading="lazy" decoding="async">
+                         <img src="assets/Tab Activity Checker.png" alt="Screenshot of Tab Activity Tracker project" loading="lazy" decoding="async" width="300" height="200">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Tab-Activity-Tracker" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://tab-activity-tracker.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -465,7 +467,7 @@
                                  <!-- Handwritten Digit Recognition -->
                  <div class="project-card" data-category="ai">
                      <div class="project-image">
-                         <img src="assets/Hand Digit Recognition System.webp" alt="Screenshot of Handwritten Digit Recognition project" loading="lazy" decoding="async">
+                         <img src="assets/Hand Digit Recognition System.webp" alt="Screenshot of Handwritten Digit Recognition project" loading="lazy" decoding="async" width="300" height="200">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Handwritten-Digit-Recognition" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                         </div>
@@ -820,8 +822,7 @@
             <div class="modal-body" id="quickViewBody"></div>
         </div>
     </div>
-    
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-0b+1kiUu4dG64aZy3jpH6r2ilcZ8UMKFm+HAY3n8rcF4Qn23cPDHkc9iGq9n3usmSZ8NDeI3jTzFJj0k0mY5ow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer src="script.js?v=3"></script>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
