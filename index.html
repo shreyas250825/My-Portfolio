@@ -33,16 +33,61 @@
     <!-- SVG favicon (modern browsers) 
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"%3E%3Cdefs%3E%3CradialGradient id="g" cx="50%25" cy="45%25" r="60%25"%3E%3Cstop offset="0%25" stop-color="%2360a5fa"/%3E%3Cstop offset="100%25" stop-color="%2322d3ee"/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width="64" height="64" rx="12" fill="%230b1220"/%3E%3Ccircle cx="32" cy="32" r="26" fill="url(%23g)" opacity="0.25"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="26" fill="white"%3ESS%3C/text%3E%3C/svg%3E'>
      -->    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="style.css?v=4" as="style">
-    <link rel="preload" href="assets/Profile%20Photo.jpeg" as="image">
-    <link rel="preload" href="script.js" as="script">
+    <!-- Critical CSS inline for mobile performance -->
+    <style>
+        /* Critical above-the-fold styles */
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:system-ui,-apple-system,sans-serif;line-height:1.6;color:#1f2937;background:#0b1220;overflow-x:hidden}
+        .container{max-width:1400px;margin:0 auto;padding:0 2rem}
+        .sticky-nav{background:rgba(10,14,23,0.95);backdrop-filter:blur(14px);position:fixed;top:0;left:0;right:0;z-index:1001;border-bottom:1px solid rgba(255,255,255,0.08)}
+        .sticky-nav .container{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
+        .nav-brand{display:flex;align-items:center;gap:1rem}
+        .logo{display:flex;align-items:center;justify-content:center;width:50px;height:50px;background:linear-gradient(135deg,#60a5fa 0%,#3b82f6 100%);color:white;border-radius:50%;font-weight:800;font-size:1.4rem}
+        .name{color:#e5e7eb;font-weight:600}
+        .nav-links{display:flex;list-style:none;gap:1rem}
+        .nav-links a{color:#e5e7eb;text-decoration:none;font-weight:500;padding:0.75rem 1.25rem;border-radius:2rem;transition:all 0.3s ease}
+        .mobile-menu-btn{display:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#e5e7eb;padding:0.75rem;border-radius:0.5rem;cursor:pointer}
+        .hero{background:transparent;min-height:85vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;color:white;padding:4rem 0}
+        .hero-title{font-size:clamp(2.5rem,6vw,5rem);color:white;margin-bottom:1rem;font-weight:700;letter-spacing:-0.02em}
+        .hero-subtitle{color:#d1d5db;font-size:1.5rem;margin-bottom:2rem}
+        .hero-text{max-width:700px;margin:0 auto 2rem;color:rgba(255,255,255,0.9);font-size:1.25rem}
+        .hero-buttons{display:flex;gap:1rem;justify-content:center;align-items:center}
+        .btn{display:inline-block;padding:0.75rem 1.5rem;border-radius:2rem;font-weight:500;text-decoration:none;transition:all 0.3s ease;text-align:center}
+        .btn-primary{background:linear-gradient(135deg,#60a5fa,#22d3ee);color:white;box-shadow:0 10px 25px rgba(34,211,238,0.25)}
+        .btn-secondary{background:rgba(255,255,255,0.06);border:2px solid rgba(255,255,255,0.2);color:#e5e7eb}
+        @media (max-width:768px){
+            .container{padding:0 1rem}
+            .nav-links{display:none}
+            .mobile-menu-btn{display:flex;align-items:center;justify-content:center;min-width:48px;min-height:48px}
+            .hero{min-height:70vh;padding:4rem 0 3rem}
+            .hero-title{font-size:clamp(2rem,8vw,3rem)}
+            .hero-subtitle{font-size:clamp(1.1rem,4vw,1.25rem)}
+            .hero-buttons{flex-direction:column;width:100%}
+            .hero-buttons .btn{width:100%;max-width:280px}
+        }
+    </style>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="style.css?v=4">
+    <!-- Preload critical resources with optimized font loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"></noscript>
+    <link rel="preload" href="style.css?v=6" as="style">
+    <link rel="preload" href="assets/Profile%20Photo.jpeg" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/AI%20Mock%20Interview%20Simulator.jpeg" as="image" media="(min-width: 768px)">
+    <link rel="preload" href="assets/Load%20Management%20System.jpeg" as="image" media="(min-width: 768px)">
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="stylesheet" href="style.css?v=6" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css?v=6"></noscript>
+    
+    <!-- Font Awesome loaded after page load -->
+    <script>
+        window.addEventListener('load', function() {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+            document.head.appendChild(link);
+        });
+    </script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -160,7 +205,7 @@
                 </div>
                 <div class="profile-image">
                     <div class="image-frame">
-                        <img src="assets/Profile Photo.jpeg" alt="Portrait of Shreyas Salian, AI Engineer & Full-Stack Developer" class="profile-photo" width="250" height="250" loading="eager" decoding="async">
+                        <img src="assets/Profile Photo.jpeg" alt="Portrait of Shreyas Salian, AI Engineer & Full-Stack Developer" class="profile-photo" width="250" height="250" loading="eager" decoding="async" fetchpriority="high" style="aspect-ratio:1/1;object-fit:cover">
                     </div>
                     <div class="social-links">
                         <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -337,7 +382,7 @@
                 <!-- AI Mock Interview Simulator -->
                 <div class="project-card" data-category="ai">
                                          <div class="project-image">
-                         <img src="assets/AI Mock Interview Simulator.jpeg" alt="Screenshot of AI Mock Interview Simulator project" loading="lazy" decoding="async" width="300" height="200">
+                         <img src="assets/AI Mock Interview Simulator.jpeg" alt="Screenshot of AI Mock Interview Simulator project" loading="lazy" decoding="async" width="300" height="200" style="aspect-ratio:3/2;object-fit:cover">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/AI-Mock-Interview-Simulator" target="_blank" rel="noopener noreferrer" aria-label="Open AI Mock Interview Simulator on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://interview-mock-simulator-basic.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Open AI Mock Interview Simulator live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -363,7 +408,7 @@
                                  <!-- Load Management System -->
                  <div class="project-card" data-category="embedded">
                      <div class="project-image">
-                         <img src="assets/Load Management System.jpeg" alt="Screenshot of Load Management System project" loading="lazy" decoding="async" width="300" height="200">
+                         <img src="assets/Load Management System.jpeg" alt="Screenshot of Load Management System project" loading="lazy" decoding="async" width="300" height="200" style="aspect-ratio:3/2;object-fit:cover">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://loadmanagementsystem.streamlit.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -389,7 +434,7 @@
                                  <!-- Smart Attendance System -->
                  <div class="project-card" data-category="ai">
                      <div class="project-image">
-                         <img src="assets/Smart Attendance System.png" alt="Screenshot of Smart Attendance System project" loading="lazy" decoding="async" width="300" height="200">
+                         <img src="assets/Smart Attendance System.png" alt="Screenshot of Smart Attendance System project" loading="lazy" decoding="async" width="300" height="200" style="aspect-ratio:3/2;object-fit:cover">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Smart-Attendance-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://smart-attendance-system-zeta.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -415,7 +460,7 @@
                                  <!-- Strictly Typed Video Quiz Player -->
                  <div class="project-card" data-category="web">
                      <div class="project-image">
-                         <img src="assets/Strictly Typed Video Quiz Player.png" alt="Screenshot of Strictly Typed Video Quiz Player project" loading="lazy" decoding="async" width="300" height="200">
+                         <img src="assets/Strictly Typed Video Quiz Player.png" alt="Screenshot of Strictly Typed Video Quiz Player project" loading="lazy" decoding="async" width="300" height="200" style="aspect-ratio:3/2;object-fit:cover">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Strictly-Typed-Video-Quiz-Player" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://strictly-typed-video-quiz-player-zm.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -441,7 +486,7 @@
                                  <!-- Tab Activity Tracker -->
                  <div class="project-card" data-category="web">
                      <div class="project-image">
-                         <img src="assets/Tab Activity Checker.png" alt="Screenshot of Tab Activity Tracker project" loading="lazy" decoding="async" width="300" height="200">
+                         <img src="assets/Tab Activity Checker.png" alt="Screenshot of Tab Activity Tracker project" loading="lazy" decoding="async" width="300" height="200" style="aspect-ratio:3/2;object-fit:cover">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Tab-Activity-Tracker" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                             <a href="https://tab-activity-tracker.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -467,7 +512,7 @@
                                  <!-- Handwritten Digit Recognition -->
                  <div class="project-card" data-category="ai">
                      <div class="project-image">
-                         <img src="assets/Hand Digit Recognition System.webp" alt="Screenshot of Handwritten Digit Recognition project" loading="lazy" decoding="async" width="300" height="200">
+                         <img src="assets/Hand Digit Recognition System.webp" alt="Screenshot of Handwritten Digit Recognition project" loading="lazy" decoding="async" width="300" height="200" style="aspect-ratio:3/2;object-fit:cover">
                          <div class="project-links">
                             <a href="https://github.com/shreyas250825/Handwritten-Digit-Recognition" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
                         </div>
@@ -823,6 +868,59 @@
         </div>
     </div>
 
-    <script src="script.js" defer></script>
+    <!-- Optimize script loading -->
+    <script>
+        // Minimal critical JavaScript inline
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle - critical functionality
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.className = 'fas fa-times';
+                        this.setAttribute('aria-expanded', 'true');
+                    } else {
+                        icon.className = 'fas fa-bars';
+                        this.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+            
+            // Enhanced lazy loading with intersection observer for better mobile performance
+            if ('IntersectionObserver' in window) {
+                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            }
+                            img.classList.remove('lazy');
+                            observer.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px 0px',
+                    threshold: 0.01
+                });
+                
+                lazyImages.forEach(img => imageObserver.observe(img));
+            }
+            
+            // Load non-critical JavaScript after page load
+            window.addEventListener('load', function() {
+                const script = document.createElement('script');
+                script.src = 'script.js';
+                script.async = true;
+                document.body.appendChild(script);
+            });
+        });
+    </script>
 </body>
 </html>

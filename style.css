@@ -1,20 +1,24 @@
-/* Modern CSS Reset and Base Styles */
+/* Optimized CSS Variables and Base Styles */
 :root {
     --primary-color: #2563eb;
     --secondary-color: #1e40af;
-    --text-color: #1f2937;
-    --light-text: #6b7280;
-    --background: #ffffff;
-    --dark-background: #f3f4f6;
+    --text-color: #e5e7eb;
+    --light-text: #cbd5e1;
+    --background: #0b1220;
+    --dark-background: #0e1629;
     --accent-color: #3b82f6;
     --success-color: #10b981;
-    --border-color: #e5e7eb;
+    --border-color: rgba(255,255,255,0.12);
     --transition: all 0.3s ease;
-    --gradient-1: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    --gradient-1: linear-gradient(135deg, #60a5fa 0%, #22d3ee 100%);
     --gradient-2: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --neon: #22d3ee;
+    --neon2: #60a5fa;
 }
 
 * {
@@ -24,11 +28,13 @@
 }
 
 body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--background);
+    background: radial-gradient(1200px 800px at 20% 10%, #111827, transparent 60%),
+                linear-gradient(160deg, var(--background), var(--dark-background));
     overflow-x: hidden;
+    font-display: swap;
 }
 
 /* Skip link for keyboard users */
@@ -63,6 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 3.5rem;
     background: var(--gradient-1);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -244,13 +251,56 @@ p {
     60% { transform: translateY(-10px) translateX(-50%); }
 }
 
-/* Respect reduced motion preferences */
+/* Performance optimizations for reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.001ms !important;
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
+        transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+    /* Reduce expensive operations on mobile */
+    .glassmorphism {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+    
+    /* Optimize image loading and prevent layout shifts */
+    img {
+        height: auto;
+        max-width: 100%;
+        display: block;
+    }
+    
+    /* Reduce shadow complexity on mobile */
+    .project-card,
+    .skill-card,
+    .experience-card {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Optimize transforms for mobile */
+    .project-card:hover,
+    .skill-card:hover {
+        transform: translateY(-2px) !important;
+    }
+    
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Optimize font rendering */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeSpeed;
     }
 }
 
@@ -436,6 +486,7 @@ p {
 .detail-item i {
     font-size: 1.5rem;
     background: var(--gradient-1);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -476,6 +527,7 @@ p {
     font-size: 2rem;
     font-weight: 700;
     background: var(--gradient-1);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
@@ -586,6 +638,7 @@ p {
 .skill-header i {
     font-size: 1.5rem;
     background: var(--gradient-1);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -1004,6 +1057,7 @@ p {
 .contact-item i {
     font-size: 1.5rem;
     background: var(--gradient-1);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
