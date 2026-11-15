@@ -3,781 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreyas Salian | AI Engineer & Full-Stack Developer</title>
-    <meta name="description" content="Professional portfolio of Shreyas Salian - AI Engineer & Full-Stack Developer specializing in machine learning and embedded systems.">
-    <meta name="keywords" content="AI Engineer, Full-Stack Developer, Machine Learning, Python, React, TensorFlow, Portfolio">
+    <title>Shreyas Salian | ECE Undergraduate &amp; AI Researcher</title>
+    <meta name="description" content="Academic and research portfolio of Shreyas Salian, an Electronics and Communication Engineering undergraduate exploring federated learning, machine unlearning, biomedical AI, wireless communication, and intelligent systems.">
+    <meta name="keywords" content="Shreyas Salian, ECE, Researcher, Federated Learning, Machine Unlearning, Biomedical AI, Wireless Communications, 6G, IIT BHU, MSRUAS, AI, Machine Learning">
     <meta name="author" content="Shreyas Salian">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#7c2d3e">
     <link rel="canonical" href="https://shreyassalian.netlify.app/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-    
-    <!-- Open Graph / Facebook -->
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://shreyassalian.netlify.app/">
-    <meta property="og:title" content="Shreyas Salian | AI Engineer & Full-Stack Developer">
-    <meta property="og:description" content="Professional portfolio of Shreyas Salian - AI Engineer & Full-Stack Developer specializing in machine learning and embedded systems.">
+    <meta property="og:title" content="Shreyas Salian | ECE Undergraduate &amp; AI Researcher">
+    <meta property="og:description" content="Academic and research portfolio of Shreyas Salian — federated learning, machine unlearning, biomedical AI, wireless communications, and intelligent systems.">
     <meta property="og:image" content="https://shreyassalian.netlify.app/assets/Profile%20Photo.jpeg">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://shreyassalian.netlify.app/">
-    <meta property="twitter:title" content="Shreyas Salian | AI Engineer & Full-Stack Developer">
-    <meta property="twitter:description" content="Professional portfolio of Shreyas Salian - AI Engineer & Full-Stack Developer specializing in machine learning and embedded systems.">
+    <meta property="twitter:title" content="Shreyas Salian | ECE Undergraduate &amp; AI Researcher">
+    <meta property="twitter:description" content="Academic and research portfolio of Shreyas Salian — federated learning, machine unlearning, biomedical AI, wireless communications, and intelligent systems.">
     <meta property="twitter:image" content="https://shreyassalian.netlify.app/assets/Profile%20Photo.jpeg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/Profile%20Photo.jpeg">
-    <!-- SVG favicon (modern browsers) 
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"%3E%3Cdefs%3E%3CradialGradient id="g" cx="50%25" cy="45%25" r="60%25"%3E%3Cstop offset="0%25" stop-color="%2360a5fa"/%3E%3Cstop offset="100%25" stop-color="%2322d3ee"/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width="64" height="64" rx="12" fill="%230b1220"/%3E%3Ccircle cx="32" cy="32" r="26" fill="url(%23g)" opacity="0.25"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="26" fill="white"%3ESS%3C/text%3E%3C/svg%3E'>
-     -->    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="style.css?v=3" as="style">
-    <link rel="preload" href="assets/Profile%20Photo.jpeg" as="image">
-    
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="style.css?v=3">
-</head>
-<body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <div class="site-bg" aria-hidden="true">
-        <canvas id="particle-canvas"></canvas>
-        <div class="bg-gradient"></div>
-    </div>
-    <div class="cursor-glow" aria-hidden="true"></div>
-    <!-- Navigation -->
-    <nav class="sticky-nav" role="navigation" aria-label="Primary">
-        <div class="container">
-            <div class="nav-brand">
-                <span class="logo magnetic" role="button" aria-label="Refresh page" tabindex="0">SS</span>
-                <span class="name">Shreyas Salian</span>
-            </div>
-            <ul class="nav-links" id="primary-navigation">
-                <li><a href="#about"><i class="fas fa-user" aria-hidden="true"></i> About</a></li>
-                <li><a href="#skills"><i class="fas fa-code" aria-hidden="true"></i> Skills</a></li>
-                <li><a href="#projects"><i class="fas fa-project-diagram" aria-hidden="true"></i> Projects</a></li>
-                <li><a href="#experience"><i class="fas fa-briefcase" aria-hidden="true"></i> Experience</a></li>
-                <li><a href="#education"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</a></li>
-                <li><a href="#certificates"><i class="fas fa-certificate" aria-hidden="true"></i> Certificates</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a></li>
-            </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-        </div>
-    </nav>
-    <main id="main-content">
+    <link rel="stylesheet" href="style.css?v=4">
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title" data-parallax="0.08">Shreyas Salian</h1>
-                <h2 class="hero-subtitle" data-parallax="0.12" data-typed='["AI Engineer","Full-Stack Developer","ML Enthusiast","Embedded Systems"]'><span id="typed"></span></h2>
-                <p class="hero-text" data-parallax="0.15">Building intelligent systems that bridge AI theory with real-world applications</p>
-                                 <div class="hero-buttons" data-parallax="0.18">
-                     <a href="#projects" class="btn btn-primary magnetic">View My Work</a>
-                     <a href="#contact" class="btn btn-secondary magnetic">Hire Me</a>
-                 </div>
-            </div>
-            <!-- Hero image section removed for cleaner look -->
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-            <canvas id="hero-network"></canvas>
-            <div class="hero-orbs">
-                <span class="orb orb-a"></span>
-                <span class="orb orb-b"></span>
-                <span class="orb orb-c"></span>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Get to know me better</p>
-            </div>
-            
-            <div class="profile-card">
-                <div class="profile-content">
-                    <h3>Who Am I?</h3>
-                    <p>I'm a passionate AI Engineer and Full-Stack Developer with expertise in building intelligent systems that combine machine learning with practical applications. My work focuses on creating solutions that are not only technically robust but also deliver real value to users.</p>
-                    
-                    <div class="about-details">
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Bangalore, India</p>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-user-tie"></i>
-                            <div>
-                                <h4>Specialization</h4>
-                                <p>AI/ML, Full-Stack Development</p>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-language"></i>
-                            <div>
-                                <h4>Languages</h4>
-                                <p>English, Hindi, Kannada</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stats">
-                        <div class="stat-item">
-                            <span class="stat-number">7+</span>
-                            <span class="stat-label">Completed Projects</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">1K+</span>
-                            <span class="stat-label">Users Impacted</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">98.2%</span>
-                            <span class="stat-label">Model Accuracy</span>
-                        </div>
-                    </div>
-                    <div class="mission-card">
-                        <h3>Why I Build</h3>
-                        <p>I love turning complex ideas into useful, delightful products. My mission is to craft AI-driven experiences that feel effortless, behave responsibly, and make a measurable impact.</p>
-                    </div>
-                </div>
-                <div class="profile-image">
-                    <div class="image-frame">
-                        <img src="assets/Profile Photo.jpeg" alt="Portrait of Shreyas Salian, AI Engineer & Full-Stack Developer" class="profile-photo" width="250" height="250" loading="lazy" decoding="async">
-                    </div>
-                    <div class="social-links">
-                        <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
-                        <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="mailto:shreyassalian1806@gmail.com" class="social-link" aria-label="Send email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section dark">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Technologies I work with</p>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Programming</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-level expert" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">JavaScript/TypeScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-level advanced" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Java</span>
-                            <div class="skill-bar">
-                                <div class="skill-level expert" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">C/C++</span>
-                            <div class="skill-bar">
-                                <div class="skill-level advanced" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-brain"></i>
-                        <h3>AI/ML</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">TensorFlow</span>
-                            <div class="skill-bar">
-                                <div class="skill-level expert" style="width: 92%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">NLP</span>
-                            <div class="skill-bar">
-                                <div class="skill-level advanced" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Computer Vision</span>
-                            <div class="skill-bar">
-                                <div class="skill-level advanced" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">CNN Architectures</span>
-                            <div class="skill-bar">
-                                <div class="skill-level advanced" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-globe"></i>
-                        <h3>Web Development</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">React (TS)</span>
-                            <div class="skill-bar">
-                                <div class="skill-level advanced" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Django/Flask</span>
-                            <div class="skill-bar">
-                                <div class="skill-level expert" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Firebase</span>
-                            <div class="skill-bar">
-                                <div class="skill-level advanced" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Node.js</span>
-                            <div class="skill-bar">
-                                <div class="skill-level intermediate" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <div class="skill-header">
-                        <i class="fas fa-microchip"></i>
-                        <h3>Embedded & Others</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Arduino</span>
-                            <div class="skill-bar">
-                                <div class="skill-level advanced" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Raspberry Pi</span>
-                            <div class="skill-bar">
-                                <div class="skill-level advanced" style="width: 83%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">MongoDB</span>
-                            <div class="skill-bar">
-                                <div class="skill-level intermediate" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Docker</span>
-                            <div class="skill-bar">
-                                <div class="skill-level intermediate" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">My recent work with live demos</p>
-            </div>
-            
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ai">AI/ML</button>
-                <button class="filter-btn" data-filter="web">Web Dev</button>
-                <button class="filter-btn" data-filter="embedded">Embedded</button>
-            </div>
-            
-            <div class="projects-grid">
-                <!-- AI Mock Interview Simulator -->
-                <div class="project-card" data-category="ai">
-                                         <div class="project-image">
-                         <img src="assets/AI Mock Interview Simulator.jpeg" alt="Screenshot of AI Mock Interview Simulator project" loading="lazy" decoding="async">
-                         <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Interview-Mock-Simulator-Basic" target="_blank" rel="noopener noreferrer" aria-label="Open AI Mock Interview Simulator on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-                            <a href="https://interview-mock-simulator-basic.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Open AI Mock Interview Simulator live demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">AI/ML</span>
-                        <h3 class="project-title">AI Mock Interview Simulator</h3>
-                        <p class="project-description">Transformer-based NLP model with adaptive questioning and scoring API. Achieved 40% improvement in response relevance.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>Flask</span>
-                            <span>NLP</span>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/shreyas250825/Interview-Mock-Simulator-Basic" target="_blank" class="btn btn-small">GitHub</a>
-                            <a href="https://interview-mock-simulator-basic.vercel.app" target="_blank" class="btn btn-small btn-primary">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-                
-                                 <!-- Load Management System -->
-                 <div class="project-card" data-category="embedded">
-                     <div class="project-image">
-                         <img src="assets/Load Management System.jpeg" alt="Screenshot of Load Management System project" loading="lazy" decoding="async">
-                         <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
-                            <a href="https://loadmanagementsystem.streamlit.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Embedded Systems</span>
-                        <h3 class="project-title">Load Management System</h3>
-                        <p class="project-description">Python + Arduino prototype simulating power distribution with real-time GUI visualization. Reduced manual monitoring by 30%.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Tkinter</span>
-                            <span>Streamlit</span>
-                            <span>Arduino</span>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank" class="btn btn-small">GitHub</a>
-                            <a href="https://loadmanagementsystem.streamlit.app" target="_blank" class="btn btn-small btn-primary">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-                
-                                 <!-- Smart Attendance System -->
-                 <div class="project-card" data-category="ai">
-                     <div class="project-image">
-                         <img src="assets/Smart Attendance System.png" alt="Screenshot of Smart Attendance System project" loading="lazy" decoding="async">
-                         <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Smart-Attendance-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
-                            <a href="https://smart-attendance-system-zeta.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">AI/ML</span>
-                        <h3 class="project-title">Smart Attendance System</h3>
-                        <p class="project-description">Face-recognition attendance tracker integrated with real-time dashboard and Firebase storage.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>OpenCV</span>
-                            <span>Flask</span>
-                            <span>Firebase</span>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/shreyas250825/Smart-Attendance-System" target="_blank" class="btn btn-small">GitHub</a>
-                            <a href="https://smart-attendance-system-zeta.vercel.app" target="_blank" class="btn btn-small btn-primary">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-                
-                                 <!-- Strictly Typed Video Quiz Player -->
-                 <div class="project-card" data-category="web">
-                     <div class="project-image">
-                         <img src="assets/Strictly Typed Video Quiz Player.png" alt="Screenshot of Strictly Typed Video Quiz Player project" loading="lazy" decoding="async">
-                         <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Strictly-Typed-Video-Quiz-Player" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
-                            <a href="https://strictly-typed-video-quiz-player-zm.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Web Development</span>
-                        <h3 class="project-title">Strictly Typed Video Quiz Player</h3>
-                        <p class="project-description">Interactive TypeScript-based video player with in-video quizzes, real-time logging, and MongoDB backend.</p>
-                        <div class="project-tech">
-                            <span>React (TS)</span>
-                            <span>Express (TS)</span>
-                            <span>MongoDB</span>
-                            <span>Vercel</span>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/shreyas250825/Strictly-Typed-Video-Quiz-Player" target="_blank" class="btn btn-small">GitHub</a>
-                            <a href="https://strictly-typed-video-quiz-player-zm.vercel.app" target="_blank" class="btn btn-small btn-primary">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-                
-                                 <!-- Tab Activity Tracker -->
-                 <div class="project-card" data-category="web">
-                     <div class="project-image">
-                         <img src="assets/Tab Activity Checker.png" alt="Screenshot of Tab Activity Tracker project" loading="lazy" decoding="async">
-                         <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Tab-Activity-Tracker" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
-                            <a href="https://tab-activity-tracker.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Web Development</span>
-                        <h3 class="project-title">Tab Activity Tracker</h3>
-                        <p class="project-description">Real-time focus tracker that calculates trust score and logs behavior into MongoDB.</p>
-                        <div class="project-tech">
-                            <span>React (TS)</span>
-                            <span>Express (TS)</span>
-                            <span>MongoDB</span>
-                            <span>Vercel</span>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/shreyas250825/Tab-Activity-Tracker" target="_blank" class="btn btn-small">GitHub</a>
-                            <a href="https://tab-activity-tracker.vercel.app" target="_blank" class="btn btn-small btn-primary">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-                
-                                 <!-- Handwritten Digit Recognition -->
-                 <div class="project-card" data-category="ai">
-                     <div class="project-image">
-                         <img src="assets/Hand Digit Recognition System.webp" alt="Screenshot of Handwritten Digit Recognition project" loading="lazy" decoding="async">
-                         <div class="project-links">
-                            <a href="https://github.com/shreyas250825/Handwritten-Digit-Recognition" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">AI/ML</span>
-                        <h3 class="project-title">Handwritten Digit Recognition</h3>
-                        <p class="project-description">98.2% accurate CNN model on MNIST dataset with dropout & batch normalization.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>CNN</span>
-                            <span>Keras</span>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/shreyas250825/Handwritten-Digit-Recognition" target="_blank" class="btn btn-small">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section-footer">
-                <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="btn btn-outline magnetic">View All Projects on GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section dark">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Where I've worked</p>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>MESCOM – Chikmagalur</h3>
-                        <span class="timeline-role">Intern – Load Management System Prototype</span>
-                        <ul class="timeline-details">
-                            <li>Developed Python + Arduino prototype simulating power distribution logic</li>
-                            <li>Designed GUI for real-time feeder-level data visualization</li>
-                            <li>Implemented algorithms that reduced manual tracking time by 30%</li>
-                            <li>Documented system architecture and user manuals</li>
-                        </ul>
-                        <div class="timeline-links">
-                            <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> View Project</a>
-                            <a href="https://loadmanagementsystem.streamlit.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2023-2024</div>
-                    <div class="timeline-content">
-                        <h3>Freelance Developer</h3>
-                        <span class="timeline-role">Frontend Developer</span>
-                        <ul class="timeline-details">
-                            <li>Developed and deployed Tryah.in dropservicing platform with payment gateway</li>
-                            <li>Created custom web solutions for small businesses using Django and React</li>
-                            <li>Integrated WordPress plugins for content management and user interaction</li>
-                            <li>Provided technical consulting for startup MVPs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">My academic journey</p>
-            </div>
-            
-            <div class="education-grid">
-                <div class="education-card">
-                    <div class="education-header">
-                        <h3>MS Ramaiah University of Applied Sciences</h3>
-                        <span class="education-date">2023 - 2027</span>
-                    </div>
-                    <div class="education-content">
-                        <span class="education-degree">B.Tech - Electronics and Communication Engineering</span>
-                        <p class="education-details">Specialization in Embedded Systems and IoT. Coursework includes Digital Signal Processing, Microcontrollers, and Communication Systems.</p>
-                    </div>
-                </div>
-                
-                <div class="education-card">
-                    <div class="education-header">
-                        <h3>Indian Institute of Technology Ropar</h3>
-                        <span class="education-date">2024 - 2025</span>
-                    </div>
-                    <div class="education-content">
-                        <span class="education-degree">Minor in Artificial Intelligence & Machine Learning</span>
-                        <p class="education-details">Focused on Deep Learning, Natural Language Processing, and Computer Vision. Completed projects in CNN architectures and transformer models.</p>
-                    </div>
-                </div>
-                
-                <div class="education-card">
-                    <div class="education-header">
-                        <h3>Dakshina Bharat Hindi Prachar Sabha</h3>
-                        <span class="education-date">2017 - 2019</span>
-                    </div>
-                    <div class="education-content">
-                        <span class="education-degree">Rashtrabasha Praveen(Uttarardh) - Equivalent B.A. Degree in Hindi Language</span>
-                        <p class="education-details">Achieved proficiency in Hindi language and literature, with focus on technical translation capabilities.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="section dark">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Certificates</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Official deployment certifications</p>
-            </div>
-            
-            <div class="certificates-grid">
-                                 <div class="certificate-card">
-                     <div class="certificate-image">
-                         <div class="custom-placeholder timetable-certificate-placeholder" role="img" aria-label="Certificate placeholder: Timetable Automation System">
-                             <i class="fas fa-calendar-alt"></i>
-                             <span>Timetable Automation System</span>
-                             <small>Certificate of Deployment</small>
-                         </div>
-                     </div>
-                     <div class="certificate-content">
-                         <h3>Timetable Automation System</h3>
-                         <p>Certificate of Deployment from MS Ramaiah University of Applied Sciences</p>
-                         <div class="certificate-footer">
-                             <a href="https://drive.google.com/file/d/1LDnEvaKusj5f3SKUV1ugoeK0FER1rPiR/view" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-primary">View Certificate</a>
-                         </div>
-                     </div>
-                 </div>
-                 
-                 <div class="certificate-card">
-                     <div class="certificate-image">
-                         <div class="custom-placeholder nba-certificate-placeholder" role="img" aria-label="Certificate placeholder: College NBA Website">
-                             <i class="fas fa-university"></i>
-                             <span>College NBA Website</span>
-                             <small>Certificate of Deployment</small>
-                         </div>
-                     </div>
-                     <div class="certificate-content">
-                         <h3>College NBA Website</h3>
-                         <p>Certificate of Deployment from MS Ramaiah University of Applied Sciences</p>
-                         <div class="certificate-footer">
-                             <a href="https://drive.google.com/file/d/1IJxkaUUnjNlGhlDZfiIQDd64iqzUKKxv/view" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-primary">View Certificate</a>
-                         </div>
-                     </div>
-                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Let's work together</p>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>I'm currently available for freelance work and collaborations. Feel free to reach out!</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:shreyassalian1806@gmail.com">shreyassalian1806@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Bangalore, India</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Availability</h4>
-                                <p>Monday - Friday: 9am - 6pm IST</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-social">
-                        <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
-                        <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Send Me a Message</h3>
-                    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                        <input type="hidden" name="form-name" value="contact" />
-                        <div class="form-group honeypot" style="display: none;">
-                            <input type="text" name="bot-field" />
-                        </div>
-                        <div class="form-group">
-                            <label for="name" class="sr-only">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required aria-describedby="nameError" aria-label="Your Name" autocomplete="name">
-                            <div class="error-message" id="nameError" role="alert"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required aria-describedby="emailError" aria-label="Your Email" autocomplete="email">
-                            <div class="error-message" id="emailError" role="alert"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject" class="sr-only">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required aria-describedby="subjectError" aria-label="Subject" autocomplete="on">
-                            <div class="error-message" id="subjectError" role="alert"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="sr-only">Your Message</label>
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-describedby="messageError" aria-label="Your Message" autocomplete="on"></textarea>
-                            <div class="error-message" id="messageError" role="alert"></div>
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="submitBtn">
-                            <span class="btn-text">Send Message</span>
-                            <span class="btn-loading" style="display: none;">
-                                <i class="fas fa-spinner fa-spin"></i> Sending...
-                            </span>
-                        </button>
-                        <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
-                        
-
-
-                    </form>
-                     
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    </main>
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo">SS</span>
-                    <h3>Shreyas Salian</h3>
-                    <p>AI Engineer & Full-Stack Developer</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">AI Development</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Embedded Systems</a></li>
-                        <li><a href="#">Consulting</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-cta">
-                    <h4>Ready to start your project?</h4>
-                    <a href="#contact" class="btn btn-primary magnetic">Get In Touch</a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Shreyas Salian. All rights reserved.</p>
-                <div class="footer-right">
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-                    </div>
-                    <a href="#" class="back-to-top in-footer" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Structured Data for SEO -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Shreyas Salian",
-        "jobTitle": "AI Engineer & Full-Stack Developer",
-        "description": "AI Engineer and Full-Stack Developer specializing in machine learning and embedded systems",
+        "jobTitle": "ECE Undergraduate Researcher",
+        "description": "Electronics and Communication Engineering undergraduate at MS Ramaiah University of Applied Sciences, researching federated learning, machine unlearning, biomedical AI, and wireless communication systems.",
         "url": "https://shreyassalian.netlify.app/",
         "image": "https://shreyassalian.netlify.app/assets/Profile%20Photo.jpeg",
         "sameAs": [
@@ -785,43 +50,930 @@
             "https://www.linkedin.com/in/shreyas-salian25/"
         ],
         "knowsAbout": [
+            "Federated Learning",
+            "Machine Unlearning",
+            "Biomedical AI",
+            "Wireless Communications",
             "Artificial Intelligence",
             "Machine Learning",
-            "Full-Stack Development",
-            "Python",
-            "React",
-            "TensorFlow",
-            "Embedded Systems"
+            "Neural Networks",
+            "Signal Processing"
         ],
         "alumniOf": {
-            "@type": "Organization",
+            "@type": "EducationalOrganization",
             "name": "MS Ramaiah University of Applied Sciences"
         },
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Freelance Developer"
-        }
+        "affiliation": {
+            "@type": "EducationalOrganization",
+            "name": "Indian Institute of Technology (BHU), Varanasi"
+        },
+        "email": "shreyassalian1806@gmail.com"
     }
     </script>
-    
-    <!-- Hidden Netlify Form for Detection -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="text" name="subject" />
+</head>
+<body>
+    <!-- Skip link -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="site-nav" role="navigation" aria-label="Primary navigation" id="site-nav">
+        <div class="nav-inner container">
+            <a class="nav-logo" href="#home" aria-label="Shreyas Salian — go to top">
+                <span class="logo-initials">SS</span>
+                <span class="logo-name">Shreyas Salian</span>
+            </a>
+            <ul class="nav-links" id="primary-navigation" role="list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#recognition">Recognition</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
+    <section id="home" class="hero-section" aria-label="Introduction">
+        <div class="hero-bg-canvas" aria-hidden="true">
+            <canvas id="hero-canvas"></canvas>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-text-col">
+                <p class="hero-eyebrow fade-in-up" style="--delay:0.1s">Electronics &amp; Communication Engineering</p>
+                <h1 class="hero-name fade-in-up" style="--delay:0.2s">Shreyas<br>Salian</h1>
+                <p class="hero-role fade-in-up" style="--delay:0.35s">ECE Undergraduate &nbsp;·&nbsp; Researcher</p>
+                <p class="hero-description fade-in-up" style="--delay:0.5s">
+                    Exploring intelligent computational methods across machine learning, wireless communications, biomedical intelligence, and distributed learning systems.
+                </p>
+                <div class="hero-interests fade-in-up" style="--delay:0.65s" aria-label="Research interests">
+                    <span class="interest-tag">Federated Learning</span>
+                    <span class="interest-tag">Machine Unlearning</span>
+                    <span class="interest-tag">Biomedical AI</span>
+                    <span class="interest-tag">6G Wireless</span>
+                    <span class="interest-tag">Intelligent Systems</span>
+                </div>
+                <div class="hero-actions fade-in-up" style="--delay:0.8s">
+                    <a href="#research" class="btn btn-primary">Explore Research</a>
+                    <a href="https://drive.google.com/file/d/1LDnEvaKusj5f3SKUV1ugoeK0FER1rPiR/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        <i class="fas fa-download" aria-hidden="true"></i> Download CV
+                    </a>
+                </div>
+                <div class="hero-social fade-in-up" style="--delay:0.95s">
+                    <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:shreyassalian1806@gmail.com" aria-label="Send email">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual-col" aria-hidden="true">
+                <div class="hero-network-wrap">
+                    <canvas id="hero-network-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-cue" aria-hidden="true">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-eyebrow">About</p>
+                <h2 id="about-heading" class="section-title">Research Identity</h2>
+                <div class="section-rule"></div>
+            </div>
+
+            <div class="about-layout">
+                <div class="about-photo-col reveal">
+                    <div class="photo-frame">
+                        <img src="assets/Profile Photo.jpeg"
+                             alt="Portrait of Shreyas Salian"
+                             class="profile-photo"
+                             width="320" height="320"
+                             loading="eager" decoding="async">
+                    </div>
+                    <div class="about-social">
+                        <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                        </a>
+                        <a href="mailto:shreyassalian1806@gmail.com" class="social-pill" aria-label="Email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i> Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about-text-col reveal">
+                    <p class="about-lead">
+                        I am an Electronics and Communication Engineering undergraduate with a focused interest in Artificial Intelligence, Machine Learning, and research-driven technological innovation.
+                    </p>
+                    <p>
+                        My interests lie at the intersection of computational intelligence, communication systems, biomedical computing, and distributed learning. I enjoy investigating complex problems, analysing existing approaches, designing computational methods, and evaluating them through controlled experiments.
+                    </p>
+                    <p>
+                        My work spans mathematical formulation, algorithmic analysis, experimental evaluation, software development, embedded systems, and applied AI. I am particularly drawn to research that combines theoretical reasoning with practical implementation and reproducible evaluation.
+                    </p>
+
+                    <div class="about-meta-grid">
+                        <div class="about-meta-item">
+                            <i class="fas fa-university" aria-hidden="true"></i>
+                            <div>
+                                <strong>Institution</strong>
+                                <span>MSRUAS, Bangalore</span>
+                            </div>
+                        </div>
+                        <div class="about-meta-item">
+                            <i class="fas fa-flask" aria-hidden="true"></i>
+                            <div>
+                                <strong>Research Host</strong>
+                                <span>IIT (BHU), Varanasi</span>
+                            </div>
+                        </div>
+                        <div class="about-meta-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <div>
+                                <strong>Location</strong>
+                                <span>Bangalore, India</span>
+                            </div>
+                        </div>
+                        <div class="about-meta-item">
+                            <i class="fas fa-atom" aria-hidden="true"></i>
+                            <div>
+                                <strong>Programme</strong>
+                                <span>B.Tech ECE (2023–2027)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ RESEARCH ═══════════════════════ -->
+    <section id="research" class="section section-alt" aria-labelledby="research-heading">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-eyebrow">Research</p>
+                <h2 id="research-heading" class="section-title">Research Projects</h2>
+                <div class="section-rule"></div>
+                <p class="section-subtitle">Investigations across federated learning, statistical analysis, and computational scheduling.</p>
+            </div>
+
+            <div class="research-grid">
+
+                <!-- Research Card 1: Federated Unlearning -->
+                <article class="research-card reveal-stagger" aria-labelledby="r1-title">
+                    <div class="research-card-header">
+                        <div class="research-icon-wrap">
+                            <i class="fas fa-wifi" aria-hidden="true"></i>
+                        </div>
+                        <div class="research-meta">
+                            <span class="research-tag">Federated Learning · 6G Wireless</span>
+                            <span class="research-date">March 2026 – November 2026</span>
+                        </div>
+                    </div>
+                    <h3 id="r1-title" class="research-title">
+                        Federated Unlearning for Neural Equalizers in 6G Wireless Communication Systems
+                    </h3>
+                    <p class="research-host">
+                        <i class="fas fa-landmark" aria-hidden="true"></i>
+                        Indian Institute of Technology (BHU), Varanasi &nbsp;·&nbsp; Research Intern
+                    </p>
+                    <p class="research-desc">
+                        Investigating client-level federated unlearning in neural receivers for next-generation wireless communication systems. The work examines how a federated learning system can respond to deletion requests while preserving the utility of the retained model, evaluated against a retained-only reference.
+                    </p>
+                    <div class="research-methods">
+                        <strong>Methodology</strong>
+                        <ul>
+                            <li>Neural equalization in wireless receivers</li>
+                            <li>Federated learning and client-level deletion</li>
+                            <li>Forgetting effectiveness evaluation</li>
+                            <li>Canary-based evaluation framework</li>
+                            <li>Equivalence testing against retained-only baseline</li>
+                            <li>Comparison of federated unlearning approaches</li>
+                        </ul>
+                    </div>
+                    <div class="research-keywords">
+                        <span>Machine Unlearning</span>
+                        <span>Neural Equalization</span>
+                        <span>6G</span>
+                        <span>TOST</span>
+                        <span>Federated Systems</span>
+                    </div>
+                </article>
+
+                <!-- Research Card 2: AdaptFlux -->
+                <article class="research-card reveal-stagger" aria-labelledby="r2-title">
+                    <div class="research-card-header">
+                        <div class="research-icon-wrap">
+                            <i class="fas fa-project-diagram" aria-hidden="true"></i>
+                        </div>
+                        <div class="research-meta">
+                            <span class="research-tag">Federated Learning · Aggregation</span>
+                            <span class="research-date">June 2026 – November 2026</span>
+                        </div>
+                    </div>
+                    <h3 id="r2-title" class="research-title">
+                        AdaptFlux: A Server-Side Aggregation Method for Heterogeneous Federated Learning
+                    </h3>
+                    <p class="research-desc research-full-title">
+                        <em>Formulation, Corrections, and Controlled Evaluation</em>
+                    </p>
+                    <p class="research-desc">
+                        An investigation into server-side aggregation approaches for federated learning under label heterogeneity and non-IID data distributions. This work includes algebraic examination of proposed formulations, identification of mathematical limitations, and development of corrected aggregation components.
+                    </p>
+                    <div class="research-methods">
+                        <strong>Contributions</strong>
+                        <ul>
+                            <li>Algebraic examination of representation-aware weighting</li>
+                            <li>Analysis of gradient-divergence correction mechanisms</li>
+                            <li>Identification of mathematical limitations in original formulation</li>
+                            <li>Development of corrected aggregation components</li>
+                            <li>Controlled evaluation across non-IID data conditions</li>
+                            <li>Statistical analysis and reproducible experimentation</li>
+                        </ul>
+                    </div>
+                    <div class="research-note">
+                        <i class="fas fa-info-circle" aria-hidden="true"></i>
+                        This work does not establish that the combined approach consistently outperforms simpler alternatives. The contribution lies in analytical corrections, rigorous evaluation, and critical assessment.
+                    </div>
+                    <div class="research-keywords">
+                        <span>Heterogeneous FL</span>
+                        <span>Non-IID Data</span>
+                        <span>Aggregation</span>
+                        <span>Statistical Analysis</span>
+                    </div>
+                </article>
+
+                <!-- Research Card 3: Timetabling -->
+                <article class="research-card reveal-stagger" aria-labelledby="r3-title">
+                    <div class="research-card-header">
+                        <div class="research-icon-wrap">
+                            <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                        </div>
+                        <div class="research-meta">
+                            <span class="research-tag">Constraint Optimization · Scheduling</span>
+                            <span class="research-date">March 2025 – May 2026</span>
+                        </div>
+                    </div>
+                    <h3 id="r3-title" class="research-title">
+                        A Workload-Aware Constraint-Based Framework for Automated Academic Timetable Generation
+                    </h3>
+                    <p class="research-desc">
+                        Research into constraint-based academic timetable generation with emphasis on feasible scheduling, faculty allocation, and workload fairness. Evaluated using an institutional dataset and structurally derived synthetic datasets.
+                    </p>
+                    <div class="research-methods">
+                        <strong>Framework Design</strong>
+                        <ul>
+                            <li>Eligible faculty identification and workload-aware assignment</li>
+                            <li>Enforcement of institutional hard constraints</li>
+                            <li>Comparison against a conventional First-Fit baseline</li>
+                            <li>Evaluation of scheduling completeness and feasibility</li>
+                            <li>Ablation analysis and scalability evaluation</li>
+                        </ul>
+                    </div>
+                    <div class="research-keywords">
+                        <span>Constraint Satisfaction</span>
+                        <span>Scheduling</span>
+                        <span>Optimization</span>
+                        <span>Ablation Study</span>
+                    </div>
+                </article>
+
+                <!-- Research Card 4: Sentiment Consistency -->
+                <article class="research-card reveal-stagger" aria-labelledby="r4-title">
+                    <div class="research-card-header">
+                        <div class="research-icon-wrap">
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <div class="research-meta">
+                            <span class="research-tag">NLP · Statistical Analysis</span>
+                            <span class="research-date">June 2026 – November 2026</span>
+                        </div>
+                    </div>
+                    <h3 id="r4-title" class="research-title">
+                        Sampling Noise and the Consistency of Online Sentiment
+                    </h3>
+                    <p class="research-desc research-full-title">
+                        <em>An Analysis of the Sentiment Consistency Index, a Sample-Size-Aware Correction, and Evidence from Real Text</em>
+                    </p>
+                    <p class="research-desc">
+                        Research investigating the statistical reliability of sentiment-consistency measurements in online textual streams. Examines mathematical limitations of the original Sentiment Consistency Index and proposes sample-size-aware statistical corrections.
+                    </p>
+                    <div class="research-methods">
+                        <strong>Methodology</strong>
+                        <ul>
+                            <li>Mathematical analysis of the original Sentiment Consistency Index</li>
+                            <li>Bounded consistency formulations</li>
+                            <li>Sample-size-aware statistical corrections</li>
+                            <li>Logistic-regression-based sentiment classification</li>
+                            <li>Timestamp-permutation null models</li>
+                            <li>Semi-synthetic resampling for robustness evaluation</li>
+                        </ul>
+                    </div>
+                    <div class="research-venue">
+                        <i class="fas fa-book-open" aria-hidden="true"></i>
+                        Associated Journal: <em>Inteligencia Artificial</em>
+                        <span class="status-badge">Under Review</span>
+                    </div>
+                    <div class="research-keywords">
+                        <span>NLP</span>
+                        <span>Statistical Modelling</span>
+                        <span>Sentiment Analysis</span>
+                        <span>Sampling Theory</span>
+                    </div>
+                </article>
+
+            </div><!-- /research-grid -->
+
+            <!-- Ongoing Research -->
+            <div class="ongoing-research reveal">
+                <div class="ongoing-header">
+                    <span class="ongoing-badge">
+                        <span class="pulse-dot" aria-hidden="true"></span>
+                        Ongoing Research
+                    </span>
+                    <h3 class="ongoing-title">Patient-Specific Predictive Cardiac Digital Twin for Early Ventricular Arrhythmia Forecasting</h3>
+                </div>
+                <div class="ongoing-layout">
+                    <div class="ongoing-visual" aria-hidden="true">
+                        <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="cardiac-wave-svg">
+                            <path d="M10 80 L45 80 L55 40 L65 120 L75 55 L85 105 L95 80 L190 80" stroke="#7c2d3e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <animate attributeName="stroke-dashoffset" from="400" to="0" dur="2.5s" repeatCount="indefinite"/>
+                                <animate attributeName="stroke-dasharray" from="0 400" to="400 400" dur="2.5s" repeatCount="indefinite"/>
+                            </path>
+                            <circle cx="65" cy="120" r="3" fill="#7c2d3e" opacity="0.6"/>
+                            <circle cx="75" cy="55" r="3" fill="#7c2d3e" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="ongoing-desc">
+                        <p>Development of a patient-specific computational cardiac modelling framework for early ventricular arrhythmia forecasting.</p>
+                        <div class="ongoing-areas">
+                            <span>Biomedical Signal Processing</span>
+                            <span>Computational Cardiology</span>
+                            <span>Predictive Modelling</span>
+                            <span>Patient-Specific Modelling</span>
+                            <span>Biomedical AI</span>
+                            <span>Software–Hardware Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ PUBLICATIONS ═══════════════════════ -->
+    <section id="publications" class="section" aria-labelledby="pub-heading">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-eyebrow">Publications</p>
+                <h2 id="pub-heading" class="section-title">Manuscripts &amp; Submissions</h2>
+                <div class="section-rule"></div>
+            </div>
+
+            <div class="publications-list">
+
+                <div class="pub-item reveal">
+                    <div class="pub-number">01</div>
+                    <div class="pub-body">
+                        <h3 class="pub-title">Sampling Noise and the Consistency of Online Sentiment: An Analysis of the Sentiment Consistency Index, a Sample-Size-Aware Correction, and Evidence from Real Text</h3>
+                        <p class="pub-authors">Shreyas Salian</p>
+                        <p class="pub-venue">
+                            <em>Inteligencia Artificial</em>
+                            <span class="pub-status under-review">Under Review</span>
+                        </p>
+                        <p class="pub-abstract-note">Research on statistical reliability of online sentiment-consistency measurements, bounded formulations, and sample-size-aware corrections evaluated on real textual data.</p>
+                    </div>
+                </div>
+
+                <div class="pub-item reveal">
+                    <div class="pub-number">02</div>
+                    <div class="pub-body">
+                        <h3 class="pub-title">Federated Unlearning for Neural Equalizers in 6G Wireless Communication Systems</h3>
+                        <p class="pub-authors">Shreyas Salian et al.</p>
+                        <p class="pub-venue">
+                            Research conducted at Indian Institute of Technology (BHU), Varanasi
+                            <span class="pub-status in-progress">In Preparation</span>
+                        </p>
+                        <p class="pub-abstract-note">Client-level federated unlearning evaluation framework for neural receivers, with canary-based forgetting assessment and equivalence testing.</p>
+                    </div>
+                </div>
+
+                <div class="pub-item reveal">
+                    <div class="pub-number">03</div>
+                    <div class="pub-body">
+                        <h3 class="pub-title">AdaptFlux: A Server-Side Aggregation Method for Heterogeneous Federated Learning — Formulation, Corrections, and Controlled Evaluation</h3>
+                        <p class="pub-authors">Shreyas Salian</p>
+                        <p class="pub-venue">
+                            Independent Research
+                            <span class="pub-status in-progress">In Preparation</span>
+                        </p>
+                        <p class="pub-abstract-note">Mathematical analysis of representation-aware aggregation for non-IID federated learning, with identified corrections and baseline comparisons.</p>
+                    </div>
+                </div>
+
+                <div class="pub-item reveal">
+                    <div class="pub-number">04</div>
+                    <div class="pub-body">
+                        <h3 class="pub-title">A Workload-Aware Constraint-Based Framework for Automated Academic Timetable Generation</h3>
+                        <p class="pub-authors">Shreyas Salian</p>
+                        <p class="pub-venue">
+                            Research conducted at MSRUAS
+                            <span class="pub-status in-progress">In Preparation</span>
+                        </p>
+                        <p class="pub-abstract-note">Constraint satisfaction approach to academic timetabling with workload-aware faculty allocation and ablation-driven evaluation.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ EXPERIENCE ═══════════════════════ -->
+    <section id="experience" class="section section-alt" aria-labelledby="exp-heading">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-eyebrow">Experience</p>
+                <h2 id="exp-heading" class="section-title">Research &amp; Professional Experience</h2>
+                <div class="section-rule"></div>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <i class="fas fa-flask" aria-hidden="true"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-org">Indian Institute of Technology (BHU), Varanasi</h3>
+                                <span class="timeline-role">Research Intern</span>
+                            </div>
+                            <span class="timeline-period">March 2026 – November 2026</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Conducted research on federated unlearning for neural equalizers in 6G wireless communication systems. The work focused on client-level deletion, forgetting evaluation, and retained-model utility assessment under a rigorous canary-based experimental framework.
+                        </p>
+                        <p class="timeline-link-note">
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            Detailed methodology in the <a href="#research">Research section</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-org">Mangalore Electricity Supply Company Limited (MESCOM), Chikmagalur</h3>
+                                <span class="timeline-role">Intern — Load Management System Prototype</span>
+                            </div>
+                            <span class="timeline-period">December 2024</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Developed a Python-based simulation platform for modelling power distribution logic and supporting feeder-level load forecasting.</li>
+                            <li>Designed an interactive desktop GUI for feeder-level data visualization with dynamic refresh and user-friendly navigation.</li>
+                            <li>Implemented functionality aligned with state electricity board data protocols.</li>
+                        </ul>
+                        <div class="timeline-actions">
+                            <a href="https://github.com/shreyas250825/Load-Management-System" target="_blank" rel="noopener noreferrer" class="timeline-action-link">
+                                <i class="fab fa-github" aria-hidden="true"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Engineering Project -->
+            <div class="engineering-project reveal">
+                <div class="eng-header">
+                    <p class="section-eyebrow" style="margin-bottom:0.5rem">Selected Engineering Project</p>
+                    <h3>Smart Attendance System</h3>
+                </div>
+                <p>Face-recognition attendance tracker integrated with a real-time dashboard and Firebase storage, combining computer vision with responsive web delivery.</p>
+                <div class="eng-tech">
+                    <span>Python</span><span>OpenCV</span><span>Flask</span><span>Firebase</span>
+                </div>
+                <div class="eng-links">
+                    <a href="https://github.com/shreyas250825/Smart-Attendance-System" target="_blank" rel="noopener noreferrer" class="timeline-action-link">
+                        <i class="fab fa-github" aria-hidden="true"></i> GitHub
+                    </a>
+                    <a href="https://smart-attendance-system-zeta.vercel.app" target="_blank" rel="noopener noreferrer" class="timeline-action-link">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ EDUCATION ═══════════════════════ -->
+    <section id="education" class="section" aria-labelledby="edu-heading">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-eyebrow">Education</p>
+                <h2 id="edu-heading" class="section-title">Academic Background</h2>
+                <div class="section-rule"></div>
+            </div>
+
+            <div class="education-grid">
+
+                <div class="education-card primary-edu reveal-stagger">
+                    <div class="edu-logo-area">
+                        <div class="edu-icon"><i class="fas fa-university" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="edu-body">
+                        <h3 class="edu-institution">M S Ramaiah University of Applied Sciences</h3>
+                        <p class="edu-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Bangalore, India</p>
+                        <p class="edu-degree">Bachelor of Technology — Electronics and Communication Engineering</p>
+                        <p class="edu-period">September 2023 – June 2027</p>
+                        <div class="edu-cgpa">
+                            <span class="cgpa-label">Current CGPA</span>
+                            <span class="cgpa-value">9.80 / 10.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-card reveal-stagger">
+                    <div class="edu-logo-area">
+                        <div class="edu-icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="edu-body">
+                        <h3 class="edu-institution">Indian Institute of Technology Ropar</h3>
+                        <p class="edu-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ropar, Punjab</p>
+                        <p class="edu-degree">Major in Artificial Intelligence and Machine Learning</p>
+                        <p class="edu-period">August 2024 – September 2025</p>
+                        <div class="edu-cgpa">
+                            <span class="cgpa-label">CGPA</span>
+                            <span class="cgpa-value">6.86 / 10.00</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Additional Qualification -->
+            <div class="additional-qualification reveal">
+                <p class="section-eyebrow">Additional Qualification</p>
+                <div class="aq-content">
+                    <div class="aq-icon"><i class="fas fa-language" aria-hidden="true"></i></div>
+                    <div>
+                        <h4>Rashtrabhasha Praveen (Uttarardh)</h4>
+                        <p>Dakshina Bharat Hindi Prachar Sabha &nbsp;·&nbsp; 2017–2019</p>
+                        <p class="aq-note">Equivalent to a B.A. in Hindi Language</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ SKILLS ═══════════════════════ -->
+    <section id="skills" class="section section-alt" aria-labelledby="skills-heading">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-eyebrow">Skills</p>
+                <h2 id="skills-heading" class="section-title">Technical Competencies</h2>
+                <div class="section-rule"></div>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="skill-group reveal-stagger">
+                    <div class="skill-group-header">
+                        <i class="fas fa-code" aria-hidden="true"></i>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>C</span>
+                        <span>C++</span>
+                        <span>Java</span>
+                        <span>JavaScript</span>
+                        <span>Verilog</span>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal-stagger">
+                    <div class="skill-group-header">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                        <h3>AI &amp; Machine Learning</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>TensorFlow</span>
+                        <span>Natural Language Processing</span>
+                        <span>CNNs</span>
+                        <span>Computer Vision</span>
+                        <span>Hugging Face Transformers</span>
+                        <span>Federated Learning</span>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal-stagger">
+                    <div class="skill-group-header">
+                        <i class="fas fa-microscope" aria-hidden="true"></i>
+                        <h3>Research Methods</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Experimental Design</span>
+                        <span>Ablation Studies</span>
+                        <span>Statistical Evaluation</span>
+                        <span>TOST</span>
+                        <span>Predictive Modelling</span>
+                        <span>Constraint-Based Optimization</span>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal-stagger">
+                    <div class="skill-group-header">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <h3>Software Development</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>React</span>
+                        <span>MERN Stack</span>
+                        <span>Django</span>
+                        <span>Flask</span>
+                        <span>Firebase</span>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal-stagger">
+                    <div class="skill-group-header">
+                        <i class="fas fa-microchip" aria-hidden="true"></i>
+                        <h3>Embedded Systems &amp; IoT</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Arduino</span>
+                        <span>Raspberry Pi</span>
+                        <span>Internet of Things</span>
+                        <span>MultiSim</span>
+                    </div>
+                </div>
+
+                <div class="skill-group reveal-stagger">
+                    <div class="skill-group-header">
+                        <i class="fas fa-tools" aria-hidden="true"></i>
+                        <h3>Tools</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Git</span>
+                        <span>GitHub</span>
+                        <span>Visual Studio Code</span>
+                        <span>Google Colab</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ RECOGNITION ═══════════════════════ -->
+    <section id="recognition" class="section" aria-labelledby="recog-heading">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-eyebrow">Recognition</p>
+                <h2 id="recog-heading" class="section-title">Recognition &amp; Academic Engagement</h2>
+                <div class="section-rule"></div>
+            </div>
+
+            <div class="recognition-grid">
+
+                <div class="recognition-card reveal-stagger">
+                    <div class="recognition-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <div class="recognition-body">
+                        <span class="recog-label">Competition Participation</span>
+                        <h3>AWS ImpactX Challenge — Techfest, IIT Bombay</h3>
+                        <p class="recog-role">Team Lead &nbsp;·&nbsp; December 22–24, 2025</p>
+                        <p>Led a team presenting a Generative AI Career Platform at the AWS ImpactX Challenge during Techfest, IIT Bombay. Received a Certificate of Participation.</p>
+                    </div>
+                </div>
+
+                <div class="recognition-card reveal-stagger">
+                    <div class="recognition-icon">
+                        <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                    </div>
+                    <div class="recognition-body">
+                        <span class="recog-label">Speaker</span>
+                        <h3>Applied Machine Learning Workshop</h3>
+                        <p class="recog-role">Speaker &nbsp;·&nbsp; March 3–4, 2026</p>
+                        <p class="recog-org">Circuitopia Team, Dept. of ECE, MSRUAS</p>
+                        <p class="recog-workshop-title"><em>"Applied Machine Learning through Case Studies: An End-to-End Workflow Approach"</em></p>
+                        <div class="recog-topics">
+                            <span>House Price Prediction</span>
+                            <span>Credit Risk Classification</span>
+                            <span>Early Sepsis Risk Prediction</span>
+                            <span>Neural Networks</span>
+                            <span>Semantic Similarity</span>
+                            <span>RAG-based AI Chatbot</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Certificates -->
+            <div class="certificates-area">
+                <p class="section-eyebrow" style="margin-bottom:1.5rem">Certificates</p>
+                <div class="certs-grid">
+
+                    <div class="cert-card reveal-stagger">
+                        <div class="cert-icon"><i class="fas fa-certificate" aria-hidden="true"></i></div>
+                        <div class="cert-body">
+                            <h4>NPTEL Elite Certification</h4>
+                            <p>Electronic Systems Design: Hands-On Circuits and PCB Design with CAD Software</p>
+                            <p class="cert-issuer">IIT Madras &nbsp;·&nbsp; July–October 2026</p>
+                            <p class="cert-score">Score: 88% &nbsp;·&nbsp; 4 Recommended Credits</p>
+                        </div>
+                        <a href="https://drive.google.com/file/d/14xHtVYAq4f3Qa3Xx2Lp3AJa_6blEQzYC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+                            View Certificate <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <div class="cert-card reveal-stagger">
+                        <div class="cert-icon"><i class="fas fa-cogs" aria-hidden="true"></i></div>
+                        <div class="cert-body">
+                            <h4>Certificate of Deployment</h4>
+                            <p>Timetable Automation System</p>
+                            <p class="cert-issuer">MS Ramaiah University of Applied Sciences &nbsp;·&nbsp; 2025</p>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1LDnEvaKusj5f3SKUV1ugoeK0FER1rPiR/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+                            View Certificate <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <div class="cert-card reveal-stagger">
+                        <div class="cert-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
+                        <div class="cert-body">
+                            <h4>Certificate of Deployment</h4>
+                            <p>College NBA Website</p>
+                            <p class="cert-issuer">MS Ramaiah University of Applied Sciences &nbsp;·&nbsp; 2025</p>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1IJxkaUUnjNlGhlDZfiIQDd64iqzUKKxv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+                            View Certificate <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+    <section id="contact" class="section section-alt" aria-labelledby="contact-heading">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-eyebrow">Contact</p>
+                <h2 id="contact-heading" class="section-title">Get in Touch</h2>
+                <div class="section-rule"></div>
+                <p class="section-subtitle">For research discussions, academic collaborations, and opportunities to contribute to interdisciplinary work in artificial intelligence, machine learning, and computational systems, feel free to get in touch.</p>
+            </div>
+
+            <div class="contact-layout">
+                <div class="contact-info-col reveal">
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:shreyassalian1806@gmail.com">shreyassalian1806@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
+                        <div>
+                            <strong>Location</strong>
+                            <span>Bangalore, India</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
+                        <div>
+                            <strong>LinkedIn</strong>
+                            <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer">shreyas-salian25</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon"><i class="fab fa-github" aria-hidden="true"></i></div>
+                        <div>
+                            <strong>GitHub</strong>
+                            <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer">shreyas250825</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-col reveal">
+                    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contact" />
+                        <div class="form-group honeypot" style="display:none;" aria-hidden="true">
+                            <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name <span aria-hidden="true">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" aria-describedby="nameError">
+                            <div class="field-error" id="nameError" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email <span aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-describedby="emailError">
+                            <div class="field-error" id="emailError" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject <span aria-hidden="true">*</span></label>
+                            <input type="text" id="subject" name="subject" placeholder="Research inquiry / collaboration" required aria-describedby="subjectError">
+                            <div class="field-error" id="subjectError" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message <span aria-hidden="true">*</span></label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message…" required aria-describedby="messageError"></textarea>
+                            <div class="field-error" id="messageError" role="alert"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" aria-hidden="true" style="display:none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending…
+                            </span>
+                        </button>
+                        <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="footer-initials">SS</span>
+                <div>
+                    <strong>Shreyas Salian</strong>
+                    <p>ECE Undergraduate &amp; Researcher</p>
+                </div>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/shreyas-salian25/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://github.com/shreyas250825" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="mailto:shreyassalian1806@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Shreyas Salian. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" aria-label="Back to top" id="backToTop">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Hidden Netlify form for detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden aria-hidden="true">
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <input type="text" name="subject">
         <textarea name="message"></textarea>
     </form>
-    
-    <!-- Project Quick View Modal -->
-    <div id="quickView" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
-        <div class="modal-backdrop" data-close="quickView"></div>
-        <div class="modal-dialog" role="document">
-            <button class="modal-close" aria-label="Close" data-close="quickView">&times;</button>
-            <div class="modal-body" id="quickViewBody"></div>
-        </div>
-    </div>
-    
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-0b+1kiUu4dG64aZy3jpH6r2ilcZ8UMKFm+HAY3n8rcF4Qn23cPDHkc9iGq9n3usmSZ8NDeI3jTzFJj0k0mY5ow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer src="script.js?v=3"></script>
+
+    <script src="script.js?v=4" defer></script>
 </body>
 </html>
