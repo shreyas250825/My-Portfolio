@@ -1,17 +1,16 @@
 /* ===================================================================
-   SHREYAS SALIAN — Academic Research Portfolio
-   script.js v4
+   SHREYAS SALIAN — Premium Academic Research Portfolio
+   script.js v5
    =================================================================== */
-
 (function () {
     'use strict';
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ── 1. Mobile Navigation ────────────────────────────────────── */
+    /* ── 1. Mobile Navigation ──────────────────────────────────── */
     (function setupNav() {
         const btn   = document.querySelector('.mobile-menu-btn');
-        const links = document.querySelector('.nav-links');
+        const links = document.getElementById('primary-navigation');
         if (!btn || !links) return;
 
         function open() {
@@ -20,7 +19,6 @@
             btn.setAttribute('aria-expanded', 'true');
             btn.setAttribute('aria-label', 'Close navigation menu');
         }
-
         function close() {
             links.classList.remove('open');
             btn.classList.remove('open');
@@ -28,282 +26,192 @@
             btn.setAttribute('aria-label', 'Open navigation menu');
         }
 
-        btn.addEventListener('click', () => {
-            if (links.classList.contains('open')) close(); else open();
-        });
+        btn.addEventListener('click', () =>
+            links.classList.contains('open') ? close() : open());
 
-        // Close on link click
-        links.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', close);
-        });
+        links.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
 
-        // Close on outside click
         document.addEventListener('click', e => {
             if (!btn.contains(e.target) && !links.contains(e.target)) close();
         });
-
-        // Close on Escape
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') close();
-        });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
     })();
 
-    /* ── 2. Sticky nav shadow on scroll ─────────────────────────── */
+    /* ── 2. Nav scroll shadow + hide/show ─────────────────────── */
     (function setupNavScroll() {
         const nav = document.getElementById('site-nav');
         if (!nav) return;
-        const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        }, { passive: true });
     })();
 
-    /* ── 3. Smooth scroll for anchor links ──────────────────────── */
-    (function setupSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+    /* ── 3. Smooth scroll for anchor links ────────────────────── */
+    (function setupScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (e) {
                 const id = this.getAttribute('href');
                 if (id === '#') return;
                 const target = document.querySelector(id);
                 if (!target) return;
                 e.preventDefault();
-                const offset = document.getElementById('site-nav')?.offsetHeight || 68;
-                window.scrollTo({ top: target.offsetTop - offset, behavior: reducedMotion ? 'auto' : 'smooth' });
+                const navH = document.getElementById('site-nav')?.offsetHeight || 68;
+                window.scrollTo({
+                    top: target.offsetTop - navH,
+                    behavior: reduced ? 'auto' : 'smooth'
+                });
             });
         });
     })();
 
-    /* ── 4. Active nav link highlight ───────────────────────────── */
+    /* ── 4. Active nav link highlight ─────────────────────────── */
     (function setupActiveNav() {
-        const links    = document.querySelectorAll('.nav-links a');
-        const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+        const links    = Array.from(document.querySelectorAll('.nav-links a'));
+        const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
 
         function update() {
-            const scrollPos = window.scrollY + 100;
-            let active = null;
-            sections.forEach((sec, i) => {
-                if (sec.offsetTop <= scrollPos) active = i;
-            });
+            const pos = window.scrollY + 110;
+            let active = -1;
+            sections.forEach((s, i) => { if (s.offsetTop <= pos) active = i; });
             links.forEach((a, i) => a.classList.toggle('active', i === active));
         }
-
         window.addEventListener('scroll', update, { passive: true });
         update();
     })();
 
-    /* ── 5. Scroll-reveal animations ─────────────────────────────── */
+    /* ── 5. Scroll-reveal ─────────────────────────────────────── */
     (function setupReveal() {
-        const all = document.querySelectorAll('.reveal, .reveal-stagger');
+        const all = document.querySelectorAll('.reveal, .reveal-s');
         if (!all.length) return;
 
-        if (reducedMotion) {
-            all.forEach(el => el.classList.add('visible'));
-            return;
-        }
+        if (reduced) { all.forEach(el => el.classList.add('visible')); return; }
 
         const obs = new IntersectionObserver((entries) => {
-            entries.forEach((entry, idx) => {
+            entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
                 const el = entry.target;
-                const siblings = Array.from(el.parentElement?.querySelectorAll('.reveal-stagger') || []);
-                const delay = el.classList.contains('reveal-stagger')
-                    ? Math.min(siblings.indexOf(el) * 80, 480)
-                    : 0;
-                setTimeout(() => el.classList.add('visible'), delay);
+                // stagger siblings of reveal-s
+                if (el.classList.contains('reveal-s')) {
+                    const siblings = Array.from(
+                        el.parentElement?.querySelectorAll('.reveal-s') || []
+                    );
+                    const idx = siblings.indexOf(el);
+                    setTimeout(() => el.classList.add('visible'), Math.min(idx * 90, 500));
+                } else {
+                    el.classList.add('visible');
+                }
                 obs.unobserve(el);
             });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
 
         all.forEach(el => obs.observe(el));
     })();
 
-    /* ── 6. Back to top button ───────────────────────────────────── */
-    (function setupBackToTop() {
+    /* ── 6. Back to top ───────────────────────────────────────── */
+    (function setupBTT() {
         const btn = document.getElementById('backToTop');
         if (!btn) return;
-
-        const toggle = () => btn.classList.toggle('visible', window.scrollY > 400);
-        window.addEventListener('scroll', toggle, { passive: true });
-        toggle();
-
-        btn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
-        });
+        window.addEventListener('scroll', () =>
+            btn.classList.toggle('on', window.scrollY > 450), { passive: true });
+        btn.addEventListener('click', () =>
+            window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
     })();
 
-    /* ── 7. Contact form ─────────────────────────────────────────── */
-    (function setupContactForm() {
+    /* ── 7. Contact form ──────────────────────────────────────── */
+    (function setupForm() {
         const form     = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
         const feedback  = document.getElementById('formFeedback');
         if (!form) return;
 
-        function validateEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        function setFieldError(id, msg) {
+        function setErr(id, msg) {
             const el = document.getElementById(id);
             if (el) el.textContent = msg;
         }
-
-        function clearErrors() {
-            ['nameError','emailError','subjectError','messageError'].forEach(id => setFieldError(id, ''));
+        function clearErrs() {
+            ['nameErr','emailErr','subjectErr','msgErr'].forEach(id => setErr(id, ''));
         }
 
         form.addEventListener('submit', function (e) {
-            clearErrors();
-            const name    = this.name.value.trim();
-            const email   = this.email.value.trim();
-            const subject = this.subject.value.trim();
-            const message = this.message.value.trim();
+            clearErrs();
+            const name    = this.name.value?.trim();
+            const email   = this.email.value?.trim();
+            const subject = this.subject.value?.trim();
+            const message = this.message.value?.trim();
             let valid = true;
 
-            if (!name)             { setFieldError('nameError',    'Name is required.'); valid = false; }
-            if (!email)            { setFieldError('emailError',   'Email is required.'); valid = false; }
-            else if (!validateEmail(email)) { setFieldError('emailError', 'Enter a valid email address.'); valid = false; }
-            if (!subject)          { setFieldError('subjectError', 'Subject is required.'); valid = false; }
-            if (!message)          { setFieldError('messageError', 'Message is required.'); valid = false; }
+            if (!name)                 { setErr('nameErr',    'Name is required.');          valid = false; }
+            if (!email)                { setErr('emailErr',   'Email is required.');         valid = false; }
+            else if (!emailRe.test(email)) { setErr('emailErr', 'Enter a valid email.'); valid = false; }
+            if (!subject)              { setErr('subjectErr', 'Subject is required.');       valid = false; }
+            if (!message)              { setErr('msgErr',     'Message is required.');       valid = false; }
 
             if (!valid) { e.preventDefault(); return; }
 
-            // Show loading state
-            const btnText    = submitBtn.querySelector('.btn-text');
-            const btnLoading = submitBtn.querySelector('.btn-loading');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnSpin = submitBtn.querySelector('.btn-spin');
             submitBtn.disabled = true;
-            if (btnText)    btnText.style.display    = 'none';
-            if (btnLoading) btnLoading.style.display = 'inline-flex';
+            if (btnText) btnText.style.display = 'none';
+            if (btnSpin) btnSpin.style.display = 'inline-flex';
 
-            // Let Netlify handle submission naturally; show optimistic feedback
             setTimeout(() => {
                 feedback.textContent = 'Thank you! Your message has been sent.';
-                feedback.className = 'form-feedback success';
+                feedback.className   = 'ffeedback ok';
                 form.reset();
-                submitBtn.disabled = false;
-                if (btnText)    btnText.style.display    = '';
-                if (btnLoading) btnLoading.style.display = 'none';
+                submitBtn.disabled    = false;
+                if (btnText) btnText.style.display = '';
+                if (btnSpin) btnSpin.style.display = 'none';
+                setTimeout(() => { feedback.className = 'ffeedback'; }, 6000);
             }, 1800);
         });
     })();
 
-    /* ── 8. Hero network canvas (right column decoration) ────────── */
-    (function setupHeroNetwork() {
-        const canvas = document.getElementById('hero-network-canvas');
-        if (!canvas || reducedMotion) return;
+    /* ── 8. Hero Research Visualization Canvas Overlay ────────── */
+    (function setupVizCanvas() {
+        const canvas = document.getElementById('viz-canvas');
+        if (!canvas || reduced) return;
 
         const ctx = canvas.getContext('2d');
         let W = 0, H = 0;
 
         function resize() {
             const rect = canvas.parentElement.getBoundingClientRect();
-            W = canvas.width  = rect.width  || 480;
-            H = canvas.height = rect.height || 480;
+            W = canvas.width  = Math.round(rect.width  || 540);
+            H = canvas.height = Math.round(rect.height || 540);
         }
-
-        window.addEventListener('resize', resize, { passive: true });
         resize();
 
-        const NODE_COUNT = 38;
-        const CONNECT    = 110;
+        const ro = new ResizeObserver(resize);
+        ro.observe(canvas.parentElement);
 
-        const nodes = Array.from({ length: NODE_COUNT }, () => ({
+        // A small set of slowly drifting particles that form connections
+        const N = 22;
+        const pts = Array.from({ length: N }, () => ({
             x:  Math.random() * W,
             y:  Math.random() * H,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4,
-            r:  Math.random() * 1.5 + 1,
+            vx: (Math.random() - 0.5) * 0.28,
+            vy: (Math.random() - 0.5) * 0.28,
         }));
-
-        // A few "hub" nodes that are slightly larger
-        [0, 7, 15, 22, 30].forEach(i => { if (nodes[i]) nodes[i].r = 3.5; });
+        const D = 90; // connection distance
 
         let raf;
         function tick() {
-            ctx.clearRect(0, 0, W, H);
-
-            // Move nodes
-            nodes.forEach(n => {
-                n.x += n.vx; n.y += n.vy;
-                if (n.x < 0 || n.x > W) n.vx *= -1;
-                if (n.y < 0 || n.y > H) n.vy *= -1;
-            });
-
-            // Draw edges
-            ctx.lineWidth = 1;
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    const a = nodes[i], b = nodes[j];
-                    const dist = Math.hypot(a.x - b.x, a.y - b.y);
-                    if (dist < CONNECT) {
-                        ctx.globalAlpha = (1 - dist / CONNECT) * 0.5;
-                        ctx.strokeStyle = '#7c2d3e';
-                        ctx.beginPath();
-                        ctx.moveTo(a.x, a.y);
-                        ctx.lineTo(b.x, b.y);
-                        ctx.stroke();
-                    }
-                }
-            }
-            ctx.globalAlpha = 1;
-
-            // Draw nodes
-            nodes.forEach(n => {
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-                ctx.fillStyle = n.r > 2 ? 'rgba(124,45,62,0.7)' : 'rgba(124,45,62,0.45)';
-                ctx.fill();
-            });
-
-            raf = requestAnimationFrame(tick);
-        }
-
-        // Pause when not visible
-        const obs = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) { raf = requestAnimationFrame(tick); }
-            else { cancelAnimationFrame(raf); }
-        });
-        obs.observe(canvas);
-    })();
-
-    /* ── 9. Full-page subtle background canvas ───────────────────── */
-    (function setupBgCanvas() {
-        const canvas = document.getElementById('hero-canvas');
-        if (!canvas || reducedMotion) return;
-
-        const ctx = canvas.getContext('2d');
-        let W = 0, H = 0;
-
-        function resize() {
-            W = canvas.width  = window.innerWidth;
-            H = canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resize, { passive: true });
-        resize();
-
-        const COUNT = Math.min(55, Math.floor(window.innerWidth / 22));
-        const pts   = Array.from({ length: COUNT }, () => ({
-            x:  Math.random() * W,
-            y:  Math.random() * H,
-            vx: (Math.random() - 0.5) * 0.25,
-            vy: (Math.random() - 0.5) * 0.25,
-        }));
-        const D = 130;
-
-        function draw() {
             ctx.clearRect(0, 0, W, H);
             pts.forEach(p => {
                 p.x += p.vx; p.y += p.vy;
                 if (p.x < 0 || p.x > W) p.vx *= -1;
                 if (p.y < 0 || p.y > H) p.vy *= -1;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(124,45,62,0.55)';
-                ctx.fill();
             });
-            ctx.lineWidth = 1;
-            for (let i = 0; i < pts.length; i++) {
-                for (let j = i + 1; j < pts.length; j++) {
+
+            ctx.lineWidth = 0.8;
+            for (let i = 0; i < N; i++) {
+                for (let j = i + 1; j < N; j++) {
                     const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-                    const d = Math.hypot(dx, dy);
+                    const d = Math.sqrt(dx * dx + dy * dy);
                     if (d < D) {
-                        ctx.globalAlpha = (1 - d / D) * 0.3;
+                        ctx.globalAlpha = (1 - d / D) * 0.22;
                         ctx.strokeStyle = '#7c2d3e';
                         ctx.beginPath();
                         ctx.moveTo(pts[i].x, pts[i].y);
@@ -313,9 +221,98 @@
                 }
             }
             ctx.globalAlpha = 1;
-            requestAnimationFrame(draw);
+
+            pts.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(124,45,62,0.35)';
+                ctx.fill();
+            });
+
+            raf = requestAnimationFrame(tick);
         }
-        draw();
+
+        // Pause when off-screen
+        const obs = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) { raf = requestAnimationFrame(tick); }
+            else { cancelAnimationFrame(raf); }
+        });
+        obs.observe(canvas);
+    })();
+
+    /* ── 9. Subtle page-level background canvas (hero section) ── */
+    (function setupHeroBg() {
+        // The hero uses CSS dot-grid + radial gradients — no JS canvas needed.
+        // We animate the SVG annotations with a gentle float.
+        if (reduced) return;
+
+        const labels = document.querySelectorAll('.viz-label');
+        if (!labels.length) return;
+
+        let t = 0;
+        function animateLabels() {
+            t += 0.012;
+            labels.forEach((lbl, i) => {
+                const offset = Math.sin(t + i * 1.2) * 2.5;
+                lbl.style.transform = `translateY(${offset}px)`;
+            });
+            requestAnimationFrame(animateLabels);
+        }
+        animateLabels();
+    })();
+
+    /* ── 10. Research SVG: gentle entrance on scroll ──────────── */
+    (function setupResearchViz() {
+        if (reduced) return;
+
+        const rvizEls = document.querySelectorAll('.rviz');
+        if (!rvizEls.length) return;
+
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'none';
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        rvizEls.forEach(el => {
+            if (!reduced) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(14px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            }
+            obs.observe(el);
+        });
+    })();
+
+    /* ── 11. Scroll-driven ECG SVG trigger ────────────────────── */
+    (function setupECGTrigger() {
+        // The ECG SVG animations are always running (CSS SVG animateElement).
+        // On reduced-motion we simply hide the SVG to avoid any movement.
+        if (!reduced) return;
+        document.querySelectorAll('.ongoing-ecg svg animate, .cardiac-wave-svg animate, svg animate').forEach(el => {
+            el.setAttribute('dur', '0s');
+            el.setAttribute('repeatCount', '0');
+        });
+    })();
+
+    /* ── 12. Smooth card hover depth ─────────────────────────── */
+    (function setupCardHover() {
+        if (reduced) return;
+        document.querySelectorAll('.ritem-visual .rviz').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform   = 'translateY(-4px)';
+                card.style.boxShadow   = '0 8px 32px rgba(26,39,68,.12)';
+                card.style.transition  = 'transform 0.3s ease, box-shadow 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform  = '';
+                card.style.boxShadow  = '';
+            });
+        });
     })();
 
 })();
