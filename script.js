@@ -5,13 +5,14 @@
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('primary-navigation');
 
-    function closeMenu() {
+    function closeMenu(restoreFocus) {
         if (!toggle || !menu) return;
         toggle.classList.remove('open');
         menu.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
         toggle.setAttribute('aria-label', 'Open navigation menu');
         document.body.style.overflow = '';
+        if (restoreFocus) toggle.focus();
     }
 
     function openMenu() {
@@ -21,6 +22,8 @@
         toggle.setAttribute('aria-expanded', 'true');
         toggle.setAttribute('aria-label', 'Close navigation menu');
         document.body.style.overflow = 'hidden';
+        const firstLink = menu.querySelector('a');
+        if (firstLink) firstLink.focus();
     }
 
     if (toggle && menu) {
@@ -28,10 +31,26 @@
             menu.classList.contains('open') ? closeMenu() : openMenu();
         });
         menu.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', closeMenu);
+            link.addEventListener('click', function () { closeMenu(false); });
         });
         document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') closeMenu();
+            if (!menu.classList.contains('open')) return;
+            if (event.key === 'Escape') {
+                closeMenu(true);
+                return;
+            }
+            if (event.key === 'Tab') {
+                const links = Array.from(menu.querySelectorAll('a'));
+                const first = links[0];
+                const last = links[links.length - 1];
+                if (event.shiftKey && document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            }
         });
         document.addEventListener('click', function (event) {
             if (!menu.contains(event.target) && !toggle.contains(event.target)) closeMenu();
@@ -59,6 +78,12 @@
 
     window.addEventListener('scroll', updateActiveLink, { passive: true });
     updateActiveLink();
+
+    if (nav) {
+        window.addEventListener('scroll', function () {
+            nav.classList.toggle('scrolled', window.scrollY > 12);
+        }, { passive: true });
+    }
 
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
         link.addEventListener('click', function (event) {
