@@ -1,7 +1,7 @@
 # robots.txt — shreyassalian.netlify.app
-# Last updated: 2026-11-16
+# Updated: 2026-11-26
 
-# ── Search-engine crawlers (indexing & discovery) ──────────────────────────
+# ── Search engine crawlers ────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
 
@@ -17,40 +17,33 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# ── AI search & answer crawlers (discovery, NOT training) ─────────────────
-# OAI-SearchBot: ChatGPT Search discovery crawler — allowed
+# ── AI search/answer crawlers (discovery) ────────────────────────
 User-agent: OAI-SearchBot
 Allow: /
 
-# PerplexityBot: Perplexity AI search crawler — allowed
 User-agent: PerplexityBot
 Allow: /
 
-# Applebot: Siri and Apple search — allowed
 User-agent: Applebot
 Allow: /
 
-# ── AI model-training crawlers — disallowed ───────────────────────────────
-# GPTBot: OpenAI model training crawler (distinct from OAI-SearchBot)
+# ── AI model-training crawlers — disallowed ───────────────────────
 User-agent: GPTBot
 Disallow: /
 
-# CCBot: Common Crawl (frequently used for training datasets)
 User-agent: CCBot
 Disallow: /
 
-# Claude web crawler (Anthropic)
 User-agent: Claude-Web
 Disallow: /
 
 User-agent: anthropic-ai
 Disallow: /
 
-# Google Extended: opt-out of Bard/Gemini training via web content
 User-agent: Google-Extended
 Disallow: /
 
-# ── Everything else: allow ────────────────────────────────────────────────
+# ── Default: allow all ────────────────────────────────────────────
 User-agent: *
 Allow: /
 
