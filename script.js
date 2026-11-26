@@ -101,6 +101,40 @@
     const year = document.getElementById('year');
     if (year) year.textContent = String(new Date().getFullYear());
 
+    /* Scroll-reveal entrance animations */
+    (function () {
+        var targets = document.querySelectorAll('[data-reveal]');
+        if (!targets.length) return;
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduced || !('IntersectionObserver' in window)) {
+            targets.forEach(function (t) { t.classList.add('revealed'); });
+            return;
+        }
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -36px 0px' });
+        targets.forEach(function (t, i) { observer.observe(t); });
+    })();
+
+    /* Back-to-top button */
+    (function () {
+        var btn = document.getElementById('backToTop');
+        if (!btn) return;
+        window.addEventListener('scroll', function () {
+            btn.classList.toggle('visible', window.scrollY > 600);
+        }, { passive: true });
+        btn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+            });
+        });
+    })();
+
     const form = document.getElementById('contactForm');
     const submit = document.getElementById('submitBtn');
     const feedback = document.getElementById('formFeedback');
