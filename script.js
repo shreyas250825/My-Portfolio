@@ -101,11 +101,16 @@
     const year = document.getElementById('year');
     if (year) year.textContent = String(new Date().getFullYear());
 
-    /* Scroll-reveal entrance animations */
+    /* ── Scroll-reveal entrance animations ─────────────────────────────────
+       Reduced on mobile (<768px) for performance: only opacity, no stagger.
+       All content remains visible if JS is off (opacity:1 in no-JS fallback
+       via noscript CSS is handled by [data-reveal] initial state being
+       overridden once 'revealed' class is added). ──────────────────────── */
     (function () {
         var targets = document.querySelectorAll('[data-reveal]');
         if (!targets.length) return;
         var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var isMobile = window.innerWidth < 768;
         if (reduced || !('IntersectionObserver' in window)) {
             targets.forEach(function (t) { t.classList.add('revealed'); });
             return;
@@ -113,14 +118,19 @@
         var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (!entry.isIntersecting) return;
-                entry.target.classList.add('revealed');
-                observer.unobserve(entry.target);
+                var el = entry.target;
+                // On mobile: skip stagger delay for snappier feel
+                if (isMobile) {
+                    el.style.transitionDelay = '0ms';
+                }
+                el.classList.add('revealed');
+                observer.unobserve(el);
             });
-        }, { threshold: 0.05, rootMargin: '0px 0px -36px 0px' });
-        targets.forEach(function (t, i) { observer.observe(t); });
+        }, { threshold: 0.05, rootMargin: '0px 0px -28px 0px' });
+        targets.forEach(function (t) { observer.observe(t); });
     })();
 
-    /* Back-to-top button */
+    /* ── Back-to-top button ───────────────────────────────────────────────*/
     (function () {
         var btn = document.getElementById('backToTop');
         if (!btn) return;
@@ -132,6 +142,18 @@
                 top: 0,
                 behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
             });
+        });
+    })();
+
+    /* ── Google Fonts: add display=swap to dynamically injected link ──────
+       The preload <link> in <head> already triggers load; this ensures
+       the stylesheet link also carries display=swap via the URL param.     */
+    (function () {
+        var fontLinks = document.querySelectorAll('link[href*="fonts.googleapis.com"]');
+        fontLinks.forEach(function (link) {
+            if (!link.href.includes('display=swap')) {
+                link.href = link.href + (link.href.includes('?') ? '&' : '?') + 'display=swap';
+            }
         });
     })();
 

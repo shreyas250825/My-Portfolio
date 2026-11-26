@@ -1,0 +1,13 @@
+node_modules/
+package.json
+package-lock.json
+*.log
+lh-*.json
+test-screenshots/
+final-screenshots/
+make-og.js
+make-webp.js
+serve-test.js
+run-tests.js
+lh-run.js
+take-screenshots.js

@@ -1,3 +1,20 @@
+/* font-display: swap — prevents invisible text during font load */
+@font-face {
+    font-family: "Libre Baskerville";
+    font-display: swap;
+    src: local("Libre Baskerville");
+}
+@font-face {
+    font-family: "Source Sans 3";
+    font-display: swap;
+    src: local("Source Sans 3");
+}
+@font-face {
+    font-family: "IBM Plex Mono";
+    font-display: swap;
+    src: local("IBM Plex Mono");
+}
+
 :root {
     --ink: #172f46;
     --ink-soft: #29445b;
@@ -667,4 +684,220 @@ details > p { margin-top: 10px; color: #455362; font-size: 14px; }
     .section { padding-block: 28px; break-inside: avoid; }
     a { color: #111; text-decoration: underline; }
     details:not([open]) > *:not(summary) { display: block; }
+}
+
+/* ============================================================
+   PHASE 3 ADDITIONS — SEO, Performance, Mobile UX
+   ============================================================ */
+
+/* ── Prevent invisible text on slow connections ──────────────────────────
+   The @font-face declarations at the top set font-display:swap.
+   This rule ensures body text uses the fallback stack immediately. */
+body {
+    font-synthesis: none;
+}
+
+/* ── hero-portrait: use <picture> + prevent CLS ─────────────────────────
+   Width/height attrs on <img> establish the aspect ratio.
+   object-position: tweak ensures face is never cropped on small portrait. */
+.hero-portrait picture { display: block; width: 100%; }
+.hero-portrait img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+/* ── Back-to-top: safe-area offset for notched devices ──────────────────*/
+.back-to-top {
+    bottom: max(24px, env(safe-area-inset-bottom, 24px));
+    right:  max(24px, env(safe-area-inset-right,  24px));
+}
+
+/* ── Improved touch targets for certificate links ───────────────────────*/
+.certificate-list a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding-inline: 4px;
+}
+
+/* ── Prevent form zoom on iOS (input font-size < 16px triggers zoom) ─────*/
+.form-field input,
+.form-field textarea,
+.form-field select {
+    font-size: max(16px, 1rem);
+}
+
+/* ── Long word / URL overflow prevention in prose ───────────────────────*/
+.prose,
+.manuscript-body,
+.timeline-item,
+.ongoing,
+.education-list,
+.recognition-grid {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+/* Keep manuscript headings readable without breaking mid-word ───────────*/
+.manuscript-heading h3 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+}
+
+/* ── Smooth scroll: respect system preference ───────────────────────────*/
+@media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+}
+
+/* ── 414px breakpoint — large Android / iPhone Plus ─────────────────────*/
+@media (max-width: 414px) {
+    .page-shell { width: calc(100% - 32px); }
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr) 86px;
+        column-gap: 10px;
+    }
+    .hero-portrait { width: 86px; }
+    .hero-copy > h1 { font-size: clamp(30px, 8.5vw, 36px); }
+}
+
+/* ── 393px — iPhone 15 Pro ────────────────────────────────────────────── */
+@media (max-width: 393px) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr) 82px;
+        column-gap: 9px;
+    }
+    .hero-portrait { width: 82px; }
+}
+
+/* ── 375px — older iPhones ───────────────────────────────────────────────*/
+@media (max-width: 375px) {
+    .hero-copy > h1 { font-size: clamp(28px, 8.8vw, 34px); letter-spacing: -1.3px; }
+    .hero-portrait { width: 76px; }
+    .hero-grid { grid-template-columns: minmax(0, 1fr) 80px; }
+    .affiliations { grid-template-columns: 1fr; }
+    .affiliations div { grid-column: auto !important; }
+}
+
+/* ── 320px — smallest supported device ──────────────────────────────────*/
+@media (max-width: 320px) {
+    .page-shell { width: calc(100% - 24px); }
+    .hero-copy > h1 { font-size: 26px; letter-spacing: -1px; }
+    .hero-portrait { width: 68px; }
+    .hero-grid { grid-template-columns: minmax(0, 1fr) 72px; column-gap: 8px; }
+    .hero-copy > .hero-specialization { font-size: 13px; }
+    .button { font-size: 13px; padding: 8px 12px; }
+    .interest-list h3 { font-size: 15px; }
+}
+
+/* ── Landscape mobile: prevent portrait from dominating ─────────────────*/
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr) min(28vw, 180px);
+        padding-block: 20px;
+    }
+    .hero-portrait { width: min(28vw, 180px); }
+    .hero-copy > h1 { font-size: clamp(28px, 5vw, 40px); }
+    .hero-copy > .hero-intro { font-size: 14px; }
+}
+
+/* ── 768px tablet portrait: 2-column hero ───────────────────────────────*/
+@media (min-width: 601px) and (max-width: 1020px) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(180px, 220px);
+        gap: clamp(20px, 4vw, 48px);
+    }
+    .hero-portrait { width: min(100%, 220px); }
+}
+
+/* ── Manuscript titles: ensure they never force horizontal scroll ────────*/
+.manuscript h3,
+.timeline-item h3,
+.ongoing h3 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+/* ── Research-result callout: better mobile display ─────────────────────*/
+@media (max-width: 760px) {
+    .timeline-item .research-result {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+    /* Reduce excessive summary padding on mobile */
+    summary {
+        min-height: 48px;
+        padding-block: 6px;
+        font-size: 13.5px;
+    }
+    /* Manuscript status badges: prevent overlap */
+    .status-line {
+        flex-wrap: wrap;
+        gap: 5px 7px;
+    }
+    /* Certificate list: stack on small screens */
+    .certificate-list article {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .certificate-list a {
+        align-self: flex-start;
+    }
+    /* Skills grid: single column already handled; ensure comfortable padding */
+    .skills-grid article {
+        padding: 16px 0 18px;
+    }
+    /* Back-to-top: smaller on mobile to avoid obscuring content */
+    .back-to-top {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+    }
+}
+
+/* ── 480px: hero actions full-width already; tighten interest grid ────── */
+@media (max-width: 480px) {
+    /* Prevent recogniton grid creating two cramped columns */
+    .recognition-grid { grid-template-columns: 1fr; }
+    /* Reduce section padding slightly more */
+    .section { padding-block: 42px; }
+    /* Ongoing research: reduce left border padding */
+    .ongoing { padding: 20px 18px 22px; }
+    /* Project list last item: single column on tiny screens */
+    .project-list article:last-child {
+        grid-template-columns: 1fr;
+    }
+    .project-list article:last-child .project-date {
+        grid-row: auto;
+        margin-bottom: 5px;
+    }
+}
+
+/* ── Accessibility: improve focus visibility ─────────────────────────── */
+:focus-visible {
+    outline: 3px solid #bf7382;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+/* Buttons and links get slightly different treatment */
+a:focus-visible,
+button:focus-visible {
+    outline-offset: 3px;
+}
+
+/* ── High-contrast mode support ─────────────────────────────────────────*/
+@media (forced-colors: active) {
+    .button, .back-to-top { border: 2px solid ButtonText; }
+    .status-line span, .status-line strong { border: 1px solid ButtonText; }
+}
+
+/* ── Print: open all details ─────────────────────────────────────────── */
+@media print {
+    details { display: block; }
+    details > *:not(summary) { display: block !important; }
 }

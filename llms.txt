@@ -1,0 +1,93 @@
+# Shreyas Salian — Academic and Research Portfolio
+# https://shreyassalian.netlify.app/
+# Last updated: 2026-11-16
+
+## Identity
+
+Shreyas Salian is an Electronics and Communication Engineering (ECE) undergraduate
+at M S Ramaiah University of Applied Sciences, Bangalore (expected graduation: 2027).
+He completed a Major in Artificial Intelligence and Machine Learning at IIT Ropar
+(August 2024 – February 2026). He conducted a research internship at IIT (BHU),
+Varanasi (March 2026 – November 2026). His research interests span federated
+learning, machine unlearning, statistical modelling, wireless communication systems,
+and biomedical AI.
+
+## Research Manuscripts (all statuses current as of November 2026)
+
+1. AdaptFlux: A Server-Side Aggregation Method for Heterogeneous Federated Learning —
+   Formulation, Corrections, and Controlled Evaluation
+   First Author. Under Review.
+   Analyses representation-aware weighting and gradient-divergence correction for
+   federated learning under non-IID data distributions. Identifies limitations and
+   proposes corrected aggregation components.
+
+2. A Workload-Aware Constraint-Based Framework for Automated Academic Timetable
+   Generation
+   First Author. Under Review.
+   Constraint-based scheduling framework enforcing institutional hard constraints and
+   workload-aware faculty assignment.
+
+3. Sampling Noise and the Consistency of Online Sentiment: An Analysis of the Sentiment
+   Consistency Index, a Sample-Size-Aware Correction, and Evidence from Real Text
+   First Author. Under Review.
+   Analyses statistical limitations of the Sentiment Consistency Index; proposes
+   sample-size-aware corrections evaluated on movie-review and tweet datasets.
+
+4. Explainable Deep Learning for Physical-Layer Classification of Wi-Fi, LTE and 5G-NR
+   Signals Using SHAP (SHapley Additive exPlanations)
+   Second Author. In Preparation.
+   Investigates a deep neural network with SHAP feature-importance analysis for
+   physical-layer wireless signal classification.
+
+5. Federated Unlearning for Neural Equalizers in 6G Wireless Communication Systems
+   Conference Submission. Under Review.
+   Client-level federated unlearning evaluation for neural equalizers using canary-based
+   forgetting assessment and Gold-relative equivalence testing.
+
+6. Patient-Specific Predictive Cardiac Digital Twin for Early Ventricular Arrhythmia
+   Forecasting
+   Conference Submission. Under Review.
+   Patient-specific ECG (Electrocardiogram) beat classification and retrospective
+   ventricular-fibrillation forecasting using XGBoost and Transformer architectures
+   with PYNQ-Z2 ARM inference.
+
+None of these manuscripts have been accepted or published as of this date.
+
+## Education
+
+- B.Tech Electronics and Communication Engineering, MSRUAS, Bangalore (2023–2027, expected)
+- Major in AI and ML, IIT Ropar (Aug 2024 – Feb 2026)
+
+## Research & Professional Experience
+
+- Research Intern, IIT (BHU) Varanasi (Mar 2026 – Nov 2026): federated unlearning
+- Research Intern, MSRUAS (Jun–Nov 2025): AdaptFlux federated learning
+- Research Intern, MSRUAS (Jan–Apr 2025): academic timetabling framework
+- Intern, MESCOM Chikmagalur (Dec 2024): load management system prototype
+- Industry Intern, Mayinkrish Ventures / MSRUAS (Jul 2026): embedded systems, PCB, VLSI
+
+## Academic Recognition
+
+- Certificate of Recognition — Academic Excellence, MSRUAS (Sep 2026): highest CGPA
+  in third-year B.Tech ECE examinations, 2025–2026
+- Speaker, Applied Machine Learning Workshop, MSRUAS (Mar 2026)
+- Team Lead, AWS ImpactX Challenge, Techfest IIT Bombay (Dec 2025) — participation
+- NPTEL Elite Certification, Electronic Systems Design, IIT Madras (Jul–Oct 2026), 88%
+
+## Technical Skills
+
+Python, C, C++, Java, JavaScript, Verilog; TensorFlow, NLP, CNNs, Computer Vision,
+Hugging Face Transformers, Federated Learning, SHAP; React, MERN Stack, Django, Flask,
+Firebase, FastAPI; Arduino, Raspberry Pi, PYNQ-Z2, IoT, Multisim; Git, GitHub,
+Google Colab.
+
+## Public Profiles
+
+- Website: https://shreyassalian.netlify.app/
+- LinkedIn: https://www.linkedin.com/in/shreyas-salian25/
+- GitHub: https://github.com/shreyas250825
+- Email: shreyassalian1806@gmail.com
+
+## Authorized Research Collection
+
+https://drive.google.com/drive/folders/1fPaXeW4UyeokorhfPbAvjyRKF6IfPI0n?usp=sharing

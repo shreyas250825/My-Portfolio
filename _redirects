@@ -1,2 +1,11 @@
-# Handle SPA routing - redirect all routes to index.html
-/* /index.html 200
+# Canonical redirect: /index.html → /  (prevents duplicate indexing)
+/index.html   /   301!
+
+# Explicit pass-through for SEO-critical files (must come before any catch-all)
+/robots.txt              /robots.txt              200
+/sitemap.xml             /sitemap.xml             200
+/googlea416fe0c4c5f48c2.html  /googlea416fe0c4c5f48c2.html  200
+/llms.txt                /llms.txt                200
+
+# This is a single-page site — all unknown paths return 404 properly.
+# DO NOT use a catch-all 200 rewrite; that creates soft-404s for crawlers.
